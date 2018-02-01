@@ -29,7 +29,7 @@
     "react/jsx-tag-spacing": "off", // Отключим требование пробела при закрытии тега
     //"react/require-default-props": "off", // Отключим требование обязательных дефолтных свойств
     "comma-dangle": "off", //Отключим требование запятой в различных списках
-    "import/prefer-default-export": "warn", // Требование использовать дефолтный экспорт
+    "import/prefer-default-export": "off", // Требование использовать дефолтный экспорт
     "react/jsx-space-before-closing": "off",
     "global-require": "off",
     "react/sort-comp": [
@@ -78,7 +78,9 @@
           "^libs/",
           "^modules/",
           "^store/",
-          "^utils/"
+          "^utils/",
+          "^actions/",
+          "^selectors/"
         ]
       }
     ],
