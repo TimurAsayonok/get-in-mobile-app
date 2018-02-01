@@ -1,0 +1,104 @@
+{
+  "extends": [
+    "airbnb"
+  ],
+  "settings": {
+    "import/resolver": {
+      "babel-module": {}
+    }
+  },
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "experimentalObjectRestSpread": true
+    }
+  },
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true,
+    "jquery": true,
+    "mocha": true
+  },
+  "rules": {
+    "linebreak-style": "off",
+    "no-empty": "off", // Разрешим использование пустых блоков
+    "react/jsx-filename-extension": "off", //Используем расширение js вместо jsx
+    "react/jsx-tag-spacing": "off", // Отключим требование пробела при закрытии тега
+    //"react/require-default-props": "off", // Отключим требование обязательных дефолтных свойств
+    "comma-dangle": "off", //Отключим требование запятой в различных списках
+    "import/prefer-default-export": "warn", // Требование использовать дефолтный экспорт
+    "react/jsx-space-before-closing": "off",
+    "global-require": "off",
+    "react/sort-comp": [
+      "warn",
+      { // Упорядочиваем код в реактовских классах
+        "order": [
+          "lifecycle",
+          "state",
+          "render",
+          "everything-else"
+        ]
+      }
+    ],
+    "react/prefer-stateless-function": "off", // Не паримся насчет чистых функций
+    "no-case-declarations": "off", // Позволим использовать case 'string': вместо case 'string' {}
+    "import/extensions": "off", //Фикс для зависимостей из локальных пакетов, начинающихся с @ Todo: исправить на нормальный вариант
+    "no-else-return": "off", // Не такая уж и трагедия использовать в else return
+    "no-shadow": "off", // Можно использовать одинаковые имена для аргументов в функции
+    "no-underscore-dangle": "off", // Позволим использовать _id
+    "padded-blocks": "off", // Разрешим использовать пустую строку в начале функции
+    "brace-style": [ // Отображение блоков if/esle, try/catch ...
+      "error",
+      "stroustrup",
+      {
+        "allowSingleLine": true
+      }
+    ],
+    "react/forbid-prop-types": "off", //Разрешим в proptypes типы object и т.д
+    "import/no-extraneous-dependencies": [
+      //Если в коде импортируются зависимости, расположенные в devDepednecies, то их стоит перенести просто в dependences
+      "error",
+      {
+        "devDependencies": true,
+        "optionalDependencies": false,
+        "peerDependencies": true
+      }
+    ],
+    "import/no-unresolved": [ //Игнорируем ошибку с модулями проекта
+      "error",
+      {
+        "ignore": [
+          "^components/",
+          "^config/",
+          "^constants/",
+          "^images/",
+          "^libs/",
+          "^modules/",
+          "^store/",
+          "^utils/"
+        ]
+      }
+    ],
+    "indent": [ // Используем два отступа, а в Swith/Case - 1
+      "error",
+      2,
+      {
+        "SwitchCase": 1
+      }
+    ],
+    "max-len": [ // Максимальная длина одной строки кода, выведена эмпирическим путем
+      "error",
+      {
+        "code": 130,
+        "ignoreComments": true,
+        "ignoreUrls": true,
+        "ignoreStrings": true,
+        "ignoreTemplateLiterals": true
+      }
+    ]
+  },
+  "globals": {}
+}
