@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import LinearGradient from 'react-native-linear-gradient';
 import _ from 'lodash';
 
 import { login } from 'actions/auth/auth';
@@ -10,6 +10,7 @@ import { authSelector } from 'selectors';
 
 import { PreLoaderIndicator } from 'components/tools';
 import AuthComponent from 'components/auth/AuthComponent';
+import { SCREEN_GRADIENT_TOP, SCREEN_GRADIENT_BUTTOM } from 'constants/UIStyles';
 
 class LoginScreenContainer extends Component {
 
@@ -31,13 +32,13 @@ class LoginScreenContainer extends Component {
     console.log(this.props);
     const { authStatus } = this.props;
     return (
-      <View style={{flex: 1}}>
+      <LinearGradient colors={[SCREEN_GRADIENT_TOP, SCREEN_GRADIENT_BUTTOM]} style={{ flex: 1}}>
         {authStatus.isFetching && <PreLoaderIndicator />}
         <AuthComponent
           login={this.loginToApp}
           authStatus={authStatus}
         />
-      </View>
+      </LinearGradient>
     );
   }
 

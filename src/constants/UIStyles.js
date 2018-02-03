@@ -3,8 +3,12 @@ import { StyleSheet, Dimensions } from 'react-native';
 export const SCREEN_WIDTH = Dimensions.get('window').width;
 export const SCREEN_HEIGHT = Dimensions.get('window').height;
 
+export const APP_TITLE = 'Get In';
+
 export const SCREEN_BACKGROUNDCOLOR = '#00B762';
 export const SCREEN_BACKGROUNDCOLOR_TOP = '#005C36';
+export const SCREEN_GRADIENT_TOP = '#5AC8FA';
+export const SCREEN_GRADIENT_BUTTOM = "#007AFF";
 export const TITLE_COLOR = '#525252';
 export const BUTTON_GROUP_SELECTED_COLOR = '#525252';
 
@@ -23,6 +27,12 @@ export const COLORS = {
   grey: '#D5D5D5',
   grey2: '#8c8787',
   black: '#525252',
+};
+
+export const AppTitleStyle = {
+  fontSize: 40,
+  fontWeight: 'bold',
+  color: COLORS.white
 };
 
 export const TextStyle = StyleSheet.create({

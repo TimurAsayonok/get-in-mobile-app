@@ -8,18 +8,16 @@ const Styles = StyleSheet.create({
     flex: 1
   },
   imageContainer: {
-    alignItems: 'center'
+    alignItems: 'center',
   },
   image: {
-    height: scale(120),
-    width: scale(180)
   },
   imageError: {
     height: scale(20),
     width: scale(20)
   },
   container: {
-    marginTop: verticalScale(40),
+    marginTop: verticalScale(30),
     paddingHorizontal: verticalScale(40)
   },
   errorContainer: {
@@ -29,7 +27,7 @@ const Styles = StyleSheet.create({
   input: {
     fontSize: moderateScale(17),
     borderRadius: scale(10),
-    borderWidth: 1,
+    borderWidth: 2,
     borderColor: '#fff',
     color: '#fff',
     paddingHorizontal: scale(10),
@@ -52,6 +50,13 @@ const Styles = StyleSheet.create({
     padding: scale(10),
     borderRadius: scale(28.5),
   },
+  signUpButtonContainer: {
+    marginTop: verticalScale(10),
+    padding: scale(10),
+    borderRadius: scale(28.5),
+    borderWidth: 2,
+    borderColor: '#fff',
+  },
   buttonText: {
     fontSize: moderateScale(17),
     fontWeight: 'bold',
@@ -60,6 +65,10 @@ const Styles = StyleSheet.create({
   },
   marginTopButton: {
     marginTop: verticalScale(15)
+  },
+  forgotPasswordContainer: {
+    alignItems: 'center',
+    marginTop: verticalScale(20)
   }
 });
 

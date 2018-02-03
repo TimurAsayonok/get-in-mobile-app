@@ -19,9 +19,7 @@ const goToAuthScreen = () => {
     screen: {
       screen: 'LoginScreen',
       navigatorStyle: {
-        navBarHidden: true,
-        screenBackgroundColor: SCREEN_BACKGROUNDCOLOR,
-        statusBarColor: SCREEN_BACKGROUNDCOLOR
+        navBarHidden: true
       },
     },
   });

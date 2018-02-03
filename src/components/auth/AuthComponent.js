@@ -10,7 +10,8 @@ import { Content } from 'native-base';
 
 import { Forms } from 'components/tools';
 import { scale } from 'utils/scale';
-import AuthComponentForm from './AuthComponentForm'
+import { AppTitleStyle, APP_TITLE, TextStyle } from 'constants/UIStyles'
+import AuthComponentForm from './AuthComponentForm';
 
 import Styles from './styles';
 
@@ -35,26 +36,35 @@ class AuthComponent extends Component {
     return (
       <Content contentContainerStyle={Styles.content}>
         <View style={Styles.imageContainer}>
-          {/* <ResponsiveImage
-            source={require('images/Logoszopipl.png')}
-            initWidth={scale(180)}
-            initHeight={scale(120)}
+          <ResponsiveImage
+            source={require('images/bath.png')}
+            initWidth={scale(110)}
+            initHeight={scale(80)}
             style={Styles.image}
-          /> */}
+          />
+          <Text style={AppTitleStyle}>{APP_TITLE}</Text>
         </View>
         <View style={Styles.container}>
           <AuthComponentForm
             onSubmit={values => this.setState({ loginDetails: values })}
             initialValues={loginDetails}
           />
-          
+          {authStatus.error.non_field_errors && <Forms.ErrorMessageForm message={authStatus.error.non_field_errors} />}
           <TouchableOpacity
             onPress={() => login(loginDetails)}
             style={Styles.buttonContainer}
           >
             <Text style={Styles.buttonText}>Login</Text>
           </TouchableOpacity>
-          {authStatus.error.non_field_errors && <Forms.ErrorMessageForm message={authStatus.error.non_field_errors} />}
+          <TouchableOpacity
+            onPress={() => login(loginDetails)}
+            style={Styles.signUpButtonContainer}
+          >
+            <Text style={[Styles.buttonText, { color: '#FFF' }]}>Sign Up</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={Styles.forgotPasswordContainer}>
+            <Text style={[TextStyle.callout, {color: '#FFF'}]}>Forgot password?</Text>
+          </TouchableOpacity>
         </View>
       </Content>
     );
