@@ -15,12 +15,12 @@ import Styles from './styles';
 const errorMessage = (message) => {
   return (
     <View style={Styles.errorContainer}>
-      <ResponsiveImage
+      {/* <ResponsiveImage
         source={require('images/icn-error.png')}
         initWidth={scale(20)}
         initHeight={scale(20)}
         style={Styles.imageError}
-      />
+      /> */}
       <Text style={Styles.textError}>{message}</Text>
     </View>
   );

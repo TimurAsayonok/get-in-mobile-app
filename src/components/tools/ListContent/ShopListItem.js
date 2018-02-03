@@ -47,7 +47,7 @@ export default class ShopListItem extends Component {
           </View>
           <View style={Styles.headerRight}>
             <ResponsiveImage
-              source={isOpenBox ? require('images/6AGreyBottom.png') : require('images/6AGreyLeft.png')}
+              // source={isOpenBox ? require('images/6AGreyBottom.png') : require('images/6AGreyLeft.png')}
               initWidth={isOpenBox ? scale(17) : scale(10)}
               initHeight={isOpenBox ? scale(10) : scale(17)}
               style={[isOpenBox ? Styles.imageCrayBottom : Styles.imageCrayLeft]}

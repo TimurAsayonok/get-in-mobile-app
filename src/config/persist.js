@@ -8,10 +8,15 @@ const saveUserFilter = createFilter(
 
 const notSaveStatus = createBlacklistFilter(
   'status',
-  ['auth']
+  ['authStatus']
 );
 
 const persistConfig = {
+  storage: AsyncStorage
+};
+
+export const persistRootConfig = {
+  key: 'root',
   storage: AsyncStorage,
   blacklist: ['form'],
   transforms: [saveUserFilter, notSaveStatus]

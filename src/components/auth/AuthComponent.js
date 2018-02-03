@@ -35,12 +35,12 @@ class AuthComponent extends Component {
     return (
       <Content contentContainerStyle={Styles.content}>
         <View style={Styles.imageContainer}>
-          <ResponsiveImage
+          {/* <ResponsiveImage
             source={require('images/Logoszopipl.png')}
             initWidth={scale(180)}
             initHeight={scale(120)}
             style={Styles.image}
-          />
+          /> */}
         </View>
         <View style={Styles.container}>
           <AuthComponentForm

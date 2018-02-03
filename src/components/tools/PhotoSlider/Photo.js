@@ -15,7 +15,7 @@ const CreatePhotoItem = ({ onPress, noPhotos, styles }) => (
   >
     <View style={[Styles.createSlideInnerContainer, noPhotos && { marginLeft: 0 }, styles]}>
       <Image
-        source={require('images/CameraWhite.png')}
+        // source={require('images/CameraWhite.png')}
         initWidth={scale(50)}
         initHeight={scale(37)}
         style={{ width: scale(50), height: scale(37) }}

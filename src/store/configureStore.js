@@ -1,10 +1,11 @@
 import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'remote-redux-devtools';
 import { createLogger } from 'redux-logger';
-import { autoRehydrate } from 'redux-persist';
+import { persistReducer } from 'redux-persist'
 import asyncMiddleware from 'redux-thunk';
 import { customMiddleware } from './middlewares';
 import rootReducer from '../reducers/index';
+import { persistRootConfig } from 'config/persist';
 
 const loggerMiddleware = createLogger({ predicate: (getState, action) => __DEV__ });
 
@@ -18,7 +19,7 @@ const createStoreWithMiddleware = composeEnhancers(applyMiddleware(
 
 
 const getStore = () => {
-  const store = autoRehydrate()(createStoreWithMiddleware)(rootReducer);
+  const store = createStoreWithMiddleware(persistReducer(persistRootConfig, rootReducer));
 
   return store;
 };

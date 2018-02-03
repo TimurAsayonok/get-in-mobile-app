@@ -1,4 +1,7 @@
 import { AppRegistry } from 'react-native';
-import App from './App';
+console.disableYellowBox = true;
+console.ignoredYellowBox = ['Warning: Failed propType: SceneView'];
 
-AppRegistry.registerComponent('GetInMobileApp', () => App);
+import Root from './src/root.js';
+
+AppRegistry.registerComponent('GetInMobileApp', () => Root);
