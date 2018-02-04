@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import LinearGradient from 'react-native-linear-gradient';
 import _ from 'lodash';
 
-import { login } from 'actions/auth/auth';
+import { authActions } from 'actions';
 import { enterToAppScreenTabs } from 'root';
 import { authSelector } from 'selectors';
 
@@ -56,7 +56,7 @@ class LoginScreenContainer extends Component {
 
     if (values) {
       if (values.email && values.password) {
-        dispatch(login(values));
+        dispatch(authActions.login(values));
       }
     }
   }
