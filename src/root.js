@@ -29,17 +29,17 @@ export const enterToAppScreenTabs = () => {
   Navigation.startTabBasedApp({
     tabs: [
       {
-        label: '',
-        screen: '', // this is a registered name for a screen
-        icon: '',
-        selectedIcon: '', // iOS only
+        label: 'Search',
+        screen: 'SearchOffersScreen', // this is a registered name for a screen
+        icon: require('images/search.png'),
+        selectedIcon: require('images/searchSelected.png'), // iOS only
         title: APP_TITLE
       },
       {
-        label: '',
-        screen: '',
-        icon: '',
-        selectedIcon: '', // iOS only
+        label: 'Search',
+        screen: 'SearchOffersScreen', // this is a registered name for a screen
+        icon: require('images/search.png'),
+        selectedIcon: require('images/searchSelected.png'), // iOS only
         title: APP_TITLE
       }
     ],

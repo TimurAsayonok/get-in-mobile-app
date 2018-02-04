@@ -38,7 +38,6 @@ class LoginScreenContainer extends Component {
   }
 
   render() {
-    console.log(this.props);
     const { isFetching, errorMessage } = this.state;
     return (
       <LinearGradient colors={[SCREEN_GRADIENT_TOP, SCREEN_GRADIENT_BUTTOM]} style={{ flex: 1}}>
