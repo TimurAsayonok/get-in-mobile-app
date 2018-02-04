@@ -17,12 +17,21 @@ class LoginScreenContainer extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      isFetching: false,
+      errorMessage: ''
+    };
 
     this.loginToApp = this.loginToApp.bind(this);
   }
 
   componentWillReceiveProps(newProps) {
+    if (newProps.authStatus) {
+      this.setState({
+        isFetching: newProps.authStatus.isFetching,
+        errorMessage: newProps.authStatus.error.message
+      });
+    }
     if (newProps.authStatus.isEntered) {
       enterToAppScreenTabs();
     }
@@ -30,13 +39,13 @@ class LoginScreenContainer extends Component {
 
   render() {
     console.log(this.props);
-    const { authStatus } = this.props;
+    const { isFetching, errorMessage } = this.state;
     return (
       <LinearGradient colors={[SCREEN_GRADIENT_TOP, SCREEN_GRADIENT_BUTTOM]} style={{ flex: 1}}>
-        {authStatus.isFetching && <PreLoaderIndicator />}
+        {isFetching && <PreLoaderIndicator />}
         <AuthComponent
           login={this.loginToApp}
-          authStatus={authStatus}
+          errorMessage={errorMessage}
         />
       </LinearGradient>
     );

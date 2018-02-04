@@ -15,12 +15,12 @@ import Styles from './styles';
 const errorMessage = (message) => {
   return (
     <View style={Styles.errorContainer}>
-      {/* <ResponsiveImage
+      <ResponsiveImage
         source={require('images/icn-error.png')}
         initWidth={scale(20)}
         initHeight={scale(20)}
         style={Styles.imageError}
-      /> */}
+      />
       <Text style={Styles.textError}>{message}</Text>
     </View>
   );
@@ -33,6 +33,7 @@ const CustomTextInput = ({ input, meta, containerStyle, ...inputProps }) => {
         {...inputProps}
         placeholderTextColor={!meta.valid && meta.touched ? '#E53935' : '#fff'}
         underlineColorAndroid="transparent"
+        autoCapitalize="none"
         style={[Styles.input, !meta.valid && meta.touched ? Styles.inputError : null]}
         onChangeText={input.onChange}
         onBlur={inputProps.onBlur}
@@ -61,8 +62,8 @@ class AuthComponentForm extends Component {
     return (
       <View>
         <Field
-          name={'email'}
-          placeholder={'Email'}
+          name="email"
+          placeholder="Email"
           component={CustomTextInput}
           props={{
             onBlur: submit
@@ -70,10 +71,10 @@ class AuthComponentForm extends Component {
         />
 
         <Field
-          name={'password'}
-          placeholder={'Password'}
+          name="password"
+          placeholder="Password"
           component={CustomTextInput}
-          secureTextEntry={true}
+          secureTextEntry
           props={{
             onBlur: submit
           }}

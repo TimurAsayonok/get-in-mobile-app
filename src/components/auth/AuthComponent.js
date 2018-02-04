@@ -30,7 +30,7 @@ class AuthComponent extends Component {
   }
 
   render() {
-    const { login, authStatus } = this.props;
+    const { login, errorMessage } = this.props;
     const { loginDetails } = this.state;
     
     return (
@@ -49,7 +49,7 @@ class AuthComponent extends Component {
             onSubmit={values => this.setState({ loginDetails: values })}
             initialValues={loginDetails}
           />
-          {authStatus.error.non_field_errors && <Forms.ErrorMessageForm message={authStatus.error.non_field_errors} />}
+          {errorMessage && <Forms.ErrorMessageForm message={errorMessage} />}
           <TouchableOpacity
             onPress={() => login(loginDetails)}
             style={Styles.buttonContainer}
@@ -73,7 +73,7 @@ class AuthComponent extends Component {
 
 AuthComponent.propTypes = {
   login: PropTypes.func.isRequired,
-  authStatus: PropTypes.object.isRequired
+  errorMessage: PropTypes.string.isRequired
 };
 
 export default AuthComponent;

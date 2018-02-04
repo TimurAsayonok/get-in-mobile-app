@@ -3,3 +3,4 @@ export const photoURI = '';
 
 /* ENDPOINTS */
 /** auth */
+export const LOGIN_ENDPOINT = '/login';

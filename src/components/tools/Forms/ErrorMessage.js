@@ -8,7 +8,7 @@ import Styles from './styles';
 const errorMessage = ({ message }) => (
   <View style={Styles.errorContainer}>
     <ResponsiveImage
-      // source={require('images/icn-error.png')}
+      source={require('images/icn-error.png')}
       initWidth={scale(20)}
       initHeight={scale(20)}
       style={Styles.imageError}

@@ -1,19 +1,16 @@
 import * as Actions from 'constants/actions';
 import { getFetch } from 'config/fetch';
-import { TOKEN_ENDPOINT } from 'constants/api';
+import { LOGIN_ENDPOINT } from 'constants/api';
 
-export function login(values) {
-  return dispatch => new Promise((resolve, reject) => {
-    dispatch({
+export const login = (values) => async(dispatch) => {
+  console.log(values)
+  try {
+    return dispatch({ 
       type: Actions.LOGIN_USER,
-      promise: getFetch('POST', TOKEN_ENDPOINT, values),
-      payload: values
+      promise: getFetch('POST', LOGIN_ENDPOINT, values),
+      payload: JSON.stringify(values)
     })
-      .then(data => resolve(data))
-      .catch(data => reject(data));
-  });
-}
-
-// export function logout() {
-  
-// };
+  } catch (error) {
+    console.log(error);
+  }
+};
