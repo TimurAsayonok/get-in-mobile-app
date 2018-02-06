@@ -3,11 +3,9 @@ import { Provider } from 'react-redux';
 import { Navigation } from 'react-native-navigation';
 import { persistStore } from 'redux-persist';
 
-import persistConfig from './config/persist';
 import configureStore from './store/configureStore';
 
 import { APP_TITLE } from './constants/commons';
-import { scale, moderateScale } from './utils/scale';
 import { SCREEN_BACKGROUNDCOLOR } from './constants/UIStyles';
 import registerScreens from './containers/index.js';
 

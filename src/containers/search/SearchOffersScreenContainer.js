@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 
+import { authActions } from 'actions';
 import { authSelector } from 'selectors';
 
 import AuthComponent from 'components/auth/AuthComponent';
@@ -16,6 +17,10 @@ class LoginScreenContainer extends Component {
 
     this.state = {
     };
+  }
+
+  componentWillMount() {
+    this.props.dispatch(authActions.getAreas());
   }
 
   render() {
