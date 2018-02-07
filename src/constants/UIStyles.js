@@ -104,8 +104,8 @@ export const ButtonStyles = {
   navBarHidden: false,
   navBarTextColor: '#FFF',
   screenBackgroundColor: '#FFF',
-  statusBarColor: SCREEN_BACKGROUNDCOLOR_TOP,
-  navBarBackgroundColor: SCREEN_BACKGROUNDCOLOR,
+  statusBarColor: SCREEN_GRADIENT_TOP,
+  navBarBackgroundColor: SCREEN_GRADIENT_TOP,
   navBarButtonColor: '#fff',
   tabBarHidden: true,
   //android
@@ -116,8 +116,8 @@ export const ButtonStyles = {
   navBarHidden: false,
   navBarTextColor: '#FFF',
   screenBackgroundColor: '#FFF',
-  statusBarColor: SCREEN_BACKGROUNDCOLOR_TOP,
-  navBarBackgroundColor: SCREEN_BACKGROUNDCOLOR,
+  statusBarColor: SCREEN_GRADIENT_TOP,
+  navBarBackgroundColor: SCREEN_GRADIENT_TOP,
   navBarButtonColor: '#fff',
   //android
   navBarTitleTextCentered: true

@@ -10,7 +10,7 @@ import { authSelector } from 'selectors';
 import AuthComponent from 'components/auth/AuthComponent';
 import { NAVIGATION_STYLES_MAIN } from 'constants/UIStyles';
 
-class SearchOffersScreenContainer extends Component {
+class ChatsScreenContainer extends Component {
 
   constructor(props) {
     super(props);
@@ -26,18 +26,18 @@ class SearchOffersScreenContainer extends Component {
   render() {
     return (
       <View>
-        <Text>Search</Text>
+        <Text>Favorites</Text>
       </View>
     );
   }
 
 }
 
-SearchOffersScreenContainer.propTypes = {
+ChatsScreenContainer.propTypes = {
   dispatch: PropTypes.func.isRequired,
   navigator: PropTypes.object.isRequired,
 };
 
-SearchOffersScreenContainer.navigatorStyle = { ...NAVIGATION_STYLES_MAIN };
+ChatsScreenContainer.navigatorStyle = { ...NAVIGATION_STYLES_MAIN };
 
-export default connect(authSelector, dispatch => ({ dispatch }))(SearchOffersScreenContainer);
+export default connect(authSelector, dispatch => ({ dispatch }))(ChatsScreenContainer);

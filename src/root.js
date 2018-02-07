@@ -31,14 +31,28 @@ export const enterToAppScreenTabs = () => {
         screen: 'SearchOffersScreen', // this is a registered name for a screen
         icon: require('images/search.png'),
         selectedIcon: require('images/searchSelected.png'), // iOS only
-        title: APP_TITLE
+        title: 'Search'
       },
       {
-        label: 'Search',
-        screen: 'SearchOffersScreen', // this is a registered name for a screen
-        icon: require('images/search.png'),
-        selectedIcon: require('images/searchSelected.png'), // iOS only
-        title: APP_TITLE
+        label: 'Favorites',
+        screen: 'FavoritesScreen', // this is a registered name for a screen
+        icon: require('images/favoriteTab.png'),
+        selectedIcon: require('images/favoritesSelectedTab.png'), // iOS only
+        title: 'Favorites'
+      },
+      {
+        label: 'Chats',
+        screen: 'ChatsScreen', // this is a registered name for a screen
+        icon: require('images/chatsTab.png'),
+        selectedIcon: require('images/chatsTabSelected.png'), // iOS only
+        title: 'Chats'
+      },
+      {
+        label: 'More',
+        screen: 'MoreScreen', // this is a registered name for a screen
+        icon: require('images/moreTab.png'),
+        selectedIcon: require('images/moreTabSelected.png'), // iOS only
+        title: 'More'
       }
     ],
     tabsStyle: {
