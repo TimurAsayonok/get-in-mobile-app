@@ -7,8 +7,9 @@ import _ from 'lodash';
 import { authActions } from 'actions';
 import { authSelector } from 'selectors';
 
-import AuthComponent from 'components/auth/AuthComponent';
+import FavoritesComponent from 'components/favorites/FavoritesComponent';
 import { NAVIGATION_STYLES_MAIN } from 'constants/UIStyles';
+import { FAVORITES_SCREEN_TITLE } from 'constants/texts';
 
 class FavoritesScreenContainer extends Component {
 
@@ -25,9 +26,9 @@ class FavoritesScreenContainer extends Component {
 
   render() {
     return (
-      <View>
-        <Text>Favorites</Text>
-      </View>
+      <FavoritesComponent
+        screenTitle={FAVORITES_SCREEN_TITLE}
+      />
     );
   }
 

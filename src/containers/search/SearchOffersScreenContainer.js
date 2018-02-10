@@ -7,8 +7,9 @@ import _ from 'lodash';
 import { authActions } from 'actions';
 import { authSelector } from 'selectors';
 
-import AuthComponent from 'components/auth/AuthComponent';
+import SearchComponent from 'components/search/SearchComponent';
 import { NAVIGATION_STYLES_MAIN } from 'constants/UIStyles';
+import { SEARCH_SCREEN_TITLE } from 'constants/texts';
 
 class SearchOffersScreenContainer extends Component {
 
@@ -19,15 +20,11 @@ class SearchOffersScreenContainer extends Component {
     };
   }
 
-  componentWillMount() {
-    // this.props.dispatch(authActions.getAreas());
-  }
-
   render() {
     return (
-      <View>
-        <Text>Search</Text>
-      </View>
+      <SearchComponent
+        screenTitle={SEARCH_SCREEN_TITLE}
+      />
     );
   }
 

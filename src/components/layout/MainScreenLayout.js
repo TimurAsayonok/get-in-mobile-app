@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
+import { ScrollView } from 'react-native';
 import PropTypes from 'prop-types';
-import { Content } from 'native-base';
 
 import { Title } from 'components/tools';
 
@@ -19,10 +19,10 @@ class MainScreenLayout extends Component {
     const { titleScreen } = this.props;
 
     return (
-      <Content style={Styles.content}>
+      <ScrollView contentContainerStyle={Styles.content}>
         {titleScreen && <Title title={titleScreen} containerStyle={{ marginLeft: 2 }} />}
         {this.props.children}
-      </Content>
+      </ScrollView>
     );
   }
 }
