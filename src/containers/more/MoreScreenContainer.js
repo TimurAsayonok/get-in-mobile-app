@@ -7,8 +7,9 @@ import _ from 'lodash';
 import { authActions } from 'actions';
 import { authSelector } from 'selectors';
 
-import AuthComponent from 'components/auth/AuthComponent';
+import MoreComponent from 'components/more/MoreComponent';
 import { NAVIGATION_STYLES_MAIN } from 'constants/UIStyles';
+import { MORE_SCREEN_TITLE } from 'constants/texts';
 
 class MoreScreenContainer extends Component {
 
@@ -25,9 +26,9 @@ class MoreScreenContainer extends Component {
 
   render() {
     return (
-      <View>
-        <Text>More</Text>
-      </View>
+      <MoreComponent
+        screenTitle={MORE_SCREEN_TITLE}
+      />
     );
   }
 

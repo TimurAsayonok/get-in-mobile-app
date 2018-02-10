@@ -7,8 +7,9 @@ import _ from 'lodash';
 import { authActions } from 'actions';
 import { authSelector } from 'selectors';
 
-import AuthComponent from 'components/auth/AuthComponent';
+import ChatsComponent from 'components/chats/ChatsComponent';
 import { NAVIGATION_STYLES_MAIN } from 'constants/UIStyles';
+import { CHATS_SCREEN_TITLE } from 'constants/texts';
 
 class ChatsScreenContainer extends Component {
 
@@ -25,9 +26,9 @@ class ChatsScreenContainer extends Component {
 
   render() {
     return (
-      <View>
-        <Text>Favorites</Text>
-      </View>
+      <ChatsComponent
+        screenTitle={CHATS_SCREEN_TITLE}
+      />
     );
   }
 
