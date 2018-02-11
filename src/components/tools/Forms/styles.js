@@ -32,10 +32,8 @@ const Styles = StyleSheet.create({
     justifyContent: 'flex-end',
   },
   valueInput: {
-    textAlign: 'right',
-    backgroundColor: '#efefef',
-    borderRadius: 4,
-    paddingRight: 5
+    flex: 1,
+    marginLeft: scale(5)
   },
   valueTextView: {
     flex: 0.3,

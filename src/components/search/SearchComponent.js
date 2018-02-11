@@ -1,17 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {
-  Text,
-  View,
-  TouchableOpacity
+  ScrollView
 } from 'react-native';
-import ResponsiveImage from 'react-native-responsive-image';
 
-import { Forms } from 'components/tools';
-import { MainScreenLayout } from 'components/layout';
-import { scale } from 'utils/scale';
-import { TextStyle } from 'constants/UIStyles'
+import { Content } from 'native-base';
+import { Button, Title } from 'components/tools';
+import { SEARCH_BUTTON } from 'constants/commons';
 
+import SearchFormComponent from './SeacrhComponentForm';
 import Styles from './styles';
 
 
@@ -22,6 +19,11 @@ class SearchComponent extends Component {
 
     this.state = {
       searchDetails: {
+        type: 'apartment',
+        location: 'nearby',
+        room: '1',
+        from: null,
+        to: null
       }
     };
   }
@@ -29,13 +31,18 @@ class SearchComponent extends Component {
   render() {
     const { screenTitle } = this.props;
     const { searchDetails } = this.state;
-
     return (
-      <MainScreenLayout titleScreen={screenTitle}>
-        <View>
-          <Text>dfgdfg</Text>
-        </View>
-      </MainScreenLayout>
+      <Content contentContainerStyle={Styles.content}>
+        <Title title={screenTitle} />
+        <SearchFormComponent
+          onSubmit={values => this.setState({ searchDetails: values })}
+          initialValues={searchDetails}
+        />
+        <Button.CustomButton
+          button={SEARCH_BUTTON}
+          style={{ marginVertical: 20 }}
+        />
+      </Content>
     );
   }
 }

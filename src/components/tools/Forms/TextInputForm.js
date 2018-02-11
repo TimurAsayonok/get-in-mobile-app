@@ -6,26 +6,21 @@ import { TextStyle } from 'constants/UIStyles.js';
 
 import Styles from './styles';
 
-const TextInputForm = ({ input, title, isNumeric, lineValue, ...inputProps }) => (
-  <View style={Styles.inputView}>
-    <View style={Styles.titleView}>
+const TextInputForm = ({ input, title, ...inputProps }) => (
+  <View style={Styles.valueInput}>
+    <View style={{ flexDirection: 'row', flex: 1 }}>
       <Text style={TextStyle.headLine}>{title}:</Text>
-    </View>
-    <View style={Styles.valueView}>
-      <View style={{ flex: 1 }}>
-        <TextInput
-          {...inputProps}
-          placeholderTextColor="#d4d4d4"
-          underlineColorAndroid="transparent"
-          keyboardType={isNumeric ? 'numeric' : 'default'}
-          style={[TextStyle.body2, Styles.valueInput]}
-          onChangeText={input.onChange}
-          onBlur={input.onBlur}
-          onFocus={input.onFocus}
-          value={input.value.toString()}
-        />
-      </View>
-      {lineValue && <Text style={TextStyle.body2}> / {lineValue}</Text>}
+      <TextInput
+        {...inputProps}
+        placeholderTextColor="#d4d4d4"
+        underlineColorAndroid="transparent"
+        keyboardType="numeric"
+        style={[TextStyle.body, Styles.valueInput]}
+        onChangeText={input.onChange}
+        onBlur={input.onBlur}
+        onFocus={input.onFocus}
+        value={input.value.toString()}
+      />
     </View>
   </View>
 );
@@ -33,16 +28,6 @@ const TextInputForm = ({ input, title, isNumeric, lineValue, ...inputProps }) =>
 TextInputForm.propTypes = {
   input: PropTypes.object.isRequired,
   title: PropTypes.string.isRequired,
-  isNumeric: PropTypes.bool,
-  lineValue: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string
-  ])
-};
-
-TextInputForm.defaultProps = {
-  isNumeric: false,
-  lineValue: null
 };
 
 export default TextInputForm;

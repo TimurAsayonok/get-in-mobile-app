@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import _ from 'lodash';
 
 import { authActions } from 'actions';
 import { authSelector } from 'selectors';

@@ -9,7 +9,7 @@ export const SCREEN_BACKGROUNDCOLOR = '#00B762';
 export const SCREEN_BACKGROUNDCOLOR_TOP = '#005C36';
 export const SCREEN_GRADIENT_TOP = '#5AC8FA';
 export const SCREEN_GRADIENT_BUTTOM = "#007AFF";
-export const TITLE_COLOR = '#525252';
+export const TITLE_COLOR = '#333';
 export const BUTTON_GROUP_SELECTED_COLOR = '#525252';
 
 export const TextColors = {
@@ -21,11 +21,11 @@ export const TextColors = {
 export const COLORS = {
   оrange: '#ff9800',
   green: '#00b762',
-  blue: '#009fe4',
+  blue: '#5AC8FA',
   red: '#ff3333',
   white: '#fff',
   grey: '#D5D5D5',
-  grey2: '#8c8787',
+  grey2: '#333',
   black: '#525252',
 };
 
@@ -53,11 +53,12 @@ export const TextStyle = StyleSheet.create({
   },
   title4: {
     fontSize: 20,
+    fontWeight: '600',
     color: TITLE_COLOR
   },
   body: {
     fontSize: 17,
-    color: COLORS.grey2
+    color: COLORS.black
   },
   headLine: {
     fontSize: 17,

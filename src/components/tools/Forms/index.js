@@ -5,6 +5,7 @@ import TextInputForm from './TextInputForm';
 import PhotoSliderInputForm from './PhotoSliderInputForm';
 import SwitchInputForm from './SwitchInputForm';
 import ErrorMessageForm from './ErrorMessage';
+import ButtonImageGroupInput from './ButtonImageGroupInputForm';
 
 export {
   ButtonGroupInput,
@@ -13,5 +14,6 @@ export {
   TextInputForm,
   PhotoSliderInputForm,
   SwitchInputForm,
-  ErrorMessageForm
+  ErrorMessageForm,
+  ButtonImageGroupInput
 };

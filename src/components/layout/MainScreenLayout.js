@@ -20,7 +20,7 @@ class MainScreenLayout extends Component {
 
     return (
       <ScrollView contentContainerStyle={Styles.content}>
-        {titleScreen && <Title title={titleScreen} containerStyle={{ marginLeft: 2 }} />}
+        {titleScreen && <Title title={titleScreen} />}
         {this.props.children}
       </ScrollView>
     );

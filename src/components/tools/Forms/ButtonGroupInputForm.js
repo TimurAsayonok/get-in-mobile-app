@@ -3,17 +3,16 @@ import PropTypes from 'prop-types';
 import { View } from 'react-native';
 
 import { Button } from 'components/tools';
-import { LINE_TYPES, LINE_TYPE_BUTTONS } from 'constants/commons';
 
-const ButtonGroupInput = ({ input: { onChange, value }, onPress }) => (
+const ButtonGroupInput = ({ input: { onChange, value }, onPress, buttons, buttonsType }) => (
   <View style={{ marginTop: 10 }}>
     <Button.CustomButtonGroup
       onPress={(selectedIndex) => {
-        onChange(LINE_TYPES[selectedIndex]);
+        onChange(buttonsType[selectedIndex]);
         setTimeout(onPress);
       }}
-      selectedIndex={LINE_TYPES.indexOf(value)}
-      buttons={LINE_TYPE_BUTTONS}
+      selectedIndex={buttonsType.indexOf(value)}
+      buttons={buttons}
     />
   </View>
 );
