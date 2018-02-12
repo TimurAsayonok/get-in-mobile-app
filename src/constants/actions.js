@@ -19,3 +19,11 @@ export const GET_AREAS = 'GET_AREAS';
 export const GET_AREAS_START = 'GET_AREAS_START';
 export const GET_AREAS_SUCCESS = 'GET_AREAS_SUCCESS';
 export const GET_AREAS_FAIL = 'GET_AREAS_FAIL';
+
+/** 
+ * Get Data
+ */
+export const GET_LIST_DATA = 'GET_LIST_DATA';
+export const GET_LIST_DATA_START = 'GET_LIST_DATA_START';
+export const GET_LIST_DATA_SUCCESS = 'GET_LIST_DATA_SUCCESS';
+export const GET_LIST_DATA_FAIL = 'GET_LIST_DATA_FAIL';

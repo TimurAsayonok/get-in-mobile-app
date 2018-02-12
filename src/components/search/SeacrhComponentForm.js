@@ -13,7 +13,7 @@ import {
 import Styles from './styles';
 
 const SearchFormComponent = (props) => {
-  const { submit } = props;
+  const { submit, goToListScreen } = props;
   return (
     <View>
       <View style={Styles.whatContainer}>
@@ -32,6 +32,7 @@ const SearchFormComponent = (props) => {
           component={Forms.ButtonGroupInput}
           buttons={LOCATION_TYPE_BUTTONS_NAME}
           buttonsType={LOCATION_TYPES}
+          goToListScreen={goToListScreen}
         />
       </View>
       <View style={Styles.priceContainer}>

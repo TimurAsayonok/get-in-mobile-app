@@ -53,46 +53,17 @@ const InfoListItemStyles = StyleSheet.create({
   },
 });
 
-const ShopListItemStyles = StyleSheet.create({
-  shopContainer: {
-    paddingBottom: verticalScale(2),
-    flex: 1
-  },
-  header: {
-    flex: 1,
-    backgroundColor: '#eeeeee',
+const ListDataItemStyles = StyleSheet.create({
+  content: {
     flexDirection: 'row',
-    alignItems: 'center',
+    borderBottomWidth: 1,
+    borderColor: '#dfdfdf',
+    marginTop: verticalScale(10),
+    paddingBottom: verticalScale(5)
   },
-  headerLeft: {
-    flex: 1,
-    marginLeft: scale(10),
-    marginRight: scale(10),
-    marginVertical: verticalScale(10),
-    flexDirection: 'row',
-    justifyContent: 'flex-start',
-  },
-  headerRight: {
-    marginRight: scale(10),
-    justifyContent: 'center',
-    alignItems: 'flex-end'
-  },
-  shopText: {
-    marginLeft: verticalScale(5)
-  },
-  image: {
-    width: scale(80),
-    height: scale(45)
-  },
-  imageCrayLeft: {
-    width: scale(10),
-    height: scale(17)
-  },
-  imageCrayBottom: {
-    width: scale(17),
-    height: scale(10)
-  },
-  body: {}
+  itemText: {
+    marginLeft: scale(5)
+  }
 });
 
 const ProductListItemStyles = StyleSheet.create({
@@ -123,4 +94,4 @@ const ProductListItemStyles = StyleSheet.create({
   }
 });
 
-export { TaskListItemStyles, InfoListItemStyles, ShopListItemStyles, ProductListItemStyles };
+export { TaskListItemStyles, InfoListItemStyles, ListDataItemStyles, ProductListItemStyles };

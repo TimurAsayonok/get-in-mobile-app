@@ -1,6 +1,17 @@
 import { COLORS } from './UIStyles';
 
 export const APP_TITLE = 'Get In';
+export const LIST_SCREEN_TITLE = {
+  metro_station: {
+    title: 'Metro stations'
+  },
+  education: {
+    title: 'Educations'
+  },
+  area: {
+    title: 'Areas'
+  }
+};
 
 export const NUMBER_OF_ROOMS = ['1', '2', '3', '4', '5'];
 

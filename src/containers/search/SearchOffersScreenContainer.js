@@ -22,10 +22,11 @@ class SearchOffersScreenContainer extends Component {
     return (
       <SearchComponent
         screenTitle={SEARCH_SCREEN_TITLE}
+        navigator={this.props.navigator}
+        dispatch={this.props.dispatch}
       />
     );
   }
-
 }
 
 SearchOffersScreenContainer.propTypes = {

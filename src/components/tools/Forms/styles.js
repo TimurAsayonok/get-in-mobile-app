@@ -54,6 +54,13 @@ const Styles = StyleSheet.create({
   imageError: {
     height: scale(20),
     width: scale(20)
+  },
+  buttonGroupTextContainer: {
+    paddingVertical: verticalScale(10),
+    paddingHorizontal: scale(5),
+    borderColor: "#E1E1E1",
+    borderWidth: StyleSheet.hairlineWidth,
+    borderTopWidth: 0
   }
 });
 
