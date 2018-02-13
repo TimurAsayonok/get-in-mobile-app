@@ -13,13 +13,15 @@ export default function (state = initialState, action) {
     case Actions.FIND_OFFERS_START:
       return {
         ...state,
-        isFetching: true
+        isFetching: true,
+        isFound: false
       };
 
     case Actions.FIND_OFFERS_SUCCESS:
       return {
         ...state,
         isFetching: false,
+        error: null,
         isFound: true
       };
 

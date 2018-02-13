@@ -8,7 +8,7 @@ const saveUserFilter = createFilter(
 
 const notSaveStatus = createBlacklistFilter(
   'status',
-  ['authStatus']
+  ['authStatus', 'offersStatus']
 );
 
 const persistConfig = {

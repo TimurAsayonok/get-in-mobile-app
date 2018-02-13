@@ -3,8 +3,9 @@ import { Navigation } from 'react-native-navigation';
 /**Auth screens */
 import LoginScreenContainer from './auth/LoginScreenContainer';
 
-/** Search screens */
+/** Search offers screens */
 import SearchOffersScreenContainer from './search/SearchOffersScreenContainer';
+import ResultsScreenContainer from './results/ResultsScreenContainer';
 
 /** Favorites screens */
 import FavoritesScreenContainer from './favorites/FavoritesScreenContainer';
@@ -21,6 +22,7 @@ import ListScreenContainer from './list/ListScreenContainer';
 export default function registerScreens(store, Provider) {
   Navigation.registerComponent('LoginScreen', () => LoginScreenContainer, store, Provider);
   Navigation.registerComponent('SearchOffersScreen', () => SearchOffersScreenContainer, store, Provider);
+  Navigation.registerComponent('ResultsScreen', () => ResultsScreenContainer, store, Provider);
   Navigation.registerComponent('FavoritesScreen', () => FavoritesScreenContainer, store, Provider);
   Navigation.registerComponent('MoreScreen', () => MoreScreenContainer, store, Provider);
   Navigation.registerComponent('ChatsScreen', () => ChatsScreenContainer, store, Provider);

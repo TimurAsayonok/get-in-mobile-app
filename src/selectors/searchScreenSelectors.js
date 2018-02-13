@@ -6,3 +6,10 @@ export const searchOffersSelector = createSelector(
     offersStatus
   })
 );
+
+export const resultsSelector = createSelector(
+  state => state.entities.offers,
+  offers => ({
+    offers
+  })
+);

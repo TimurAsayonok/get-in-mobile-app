@@ -16,21 +16,35 @@ class SearchOffersScreenContainer extends Component {
     super(props);
 
     this.state = {
+      isFetching: false
     };
 
     this.onSubmit = this.onSubmit.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.offersStatus.error && !nextProps.offersStatus.isFetching) {
+    const { offersStatus } = nextProps;
+    if (offersStatus) {
+      this.setState({
+        isFetching: offersStatus.isFetching,
+      });
+    }
+    if (offersStatus.error && !offersStatus.isFetching) {
       Alert.alert(
         'Message',
-        `${nextProps.offersStatus.error}`,
+        `${offersStatus.error}`,
         [
           { text: 'OK', onPress: () => console.log('OK Pressed') },
         ],
         { cancelable: false }
       );
+    }
+
+    if (offersStatus.isFound) {
+      this.props.navigator.push({
+        screen: 'ResultsScreen',
+        title: 'Refults'
+      });
     }
   }
 
@@ -41,7 +55,7 @@ class SearchOffersScreenContainer extends Component {
         navigator={this.props.navigator}
         dispatch={this.props.dispatch}
         onButtomPress={this.onSubmit}
-        isFetching={this.props.offersStatus.isFetching}
+        isFetching={this.state.isFetching}
       />
     );
   }
