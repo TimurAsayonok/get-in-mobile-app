@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { Alert } from 'react-native';
 
 import { offersActions } from 'actions';
-import { authSelector } from 'selectors';
+import { searchOffersSelector } from 'selectors';
 
 import SearchComponent from 'components/search/SearchComponent';
 import { NAVIGATION_STYLES_MAIN } from 'constants/UIStyles';
@@ -20,6 +21,19 @@ class SearchOffersScreenContainer extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.offersStatus.error && !nextProps.offersStatus.isFetching) {
+      Alert.alert(
+        'Message',
+        `${nextProps.offersStatus.error}`,
+        [
+          { text: 'OK', onPress: () => console.log('OK Pressed') },
+        ],
+        { cancelable: false }
+      );
+    }
+  }
+
   render() {
     return (
       <SearchComponent
@@ -27,6 +41,7 @@ class SearchOffersScreenContainer extends Component {
         navigator={this.props.navigator}
         dispatch={this.props.dispatch}
         onButtomPress={this.onSubmit}
+        isFetching={this.props.offersStatus.isFetching}
       />
     );
   }
@@ -41,8 +56,9 @@ class SearchOffersScreenContainer extends Component {
 SearchOffersScreenContainer.propTypes = {
   dispatch: PropTypes.func.isRequired,
   navigator: PropTypes.object.isRequired,
+  offersStatus: PropTypes.object.isRequired
 };
 
 SearchOffersScreenContainer.navigatorStyle = { ...NAVIGATION_STYLES_MAIN };
 
-export default connect(authSelector, dispatch => ({ dispatch }))(SearchOffersScreenContainer);
+export default connect(searchOffersSelector, dispatch => ({ dispatch }))(SearchOffersScreenContainer);

@@ -5,6 +5,7 @@ import user from './entities/user';
 import listData from './entities/listData';
 
 import authStatus from './status/auth';
+import offersStatus from './status/offersStatus';
 
 export default combineReducers({
   entities: combineReducers({
@@ -12,7 +13,8 @@ export default combineReducers({
     listData
   }),
   status: combineReducers({
-    authStatus
+    authStatus,
+    offersStatus
   }),
   form
 });

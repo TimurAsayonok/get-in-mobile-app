@@ -6,7 +6,7 @@ import {
 import { change } from 'redux-form';
 
 import { Content } from 'native-base';
-import { Button, Title } from 'components/tools';
+import { Button, Title, PreLoaderIndicator } from 'components/tools';
 import { SEARCH_BUTTON, LIST_SCREEN_TITLE } from 'constants/commons';
 
 import SearchFormComponent from './SeacrhComponentForm';
@@ -39,11 +39,12 @@ class SearchComponent extends Component {
   }
 
   render() {
-    const { screenTitle, onButtomPress } = this.props;
+    const { screenTitle, onButtomPress, isFetching } = this.props;
     const { searchDetails } = this.state;
 
     return (
       <Content contentContainerStyle={Styles.content}>
+        {isFetching && <PreLoaderIndicator />}
         <Title title={screenTitle} />
         <SearchFormComponent
           onSubmit={values => this.setState({ searchDetails: values })}
@@ -120,7 +121,8 @@ SearchComponent.propTypes = {
   dispatch: PropTypes.func.isRequired,
   navigator: PropTypes.object.isRequired,
   screenTitle: PropTypes.string.isRequired,
-  onButtomPress: PropTypes.func.isRequired
+  onButtomPress: PropTypes.func.isRequired,
+  isFetching: PropTypes.bool.isRequired
 };
 
 export default SearchComponent;

@@ -1,5 +1,6 @@
 import * as Actions from 'constants/actions';
 import { getFetch } from 'config/fetch';
+import { FIND_OFFERS_ENDPOINT } from 'constants/api';
 
 export const findOffers = (values) => async (dispatch) => {
   console.log(values)
@@ -22,8 +23,8 @@ export const findOffers = (values) => async (dispatch) => {
 
   try {
     return await dispatch({
-      type: "FIND_OFFERS",
-      promise: getFetch('POST', `/find_offers/`, validValues),
+      type: Actions.FIND_OFFERS,
+      promise: getFetch('POST', FIND_OFFERS_ENDPOINT, validValues),
       payload: validValues
     })
   } catch (error) {

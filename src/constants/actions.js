@@ -11,6 +11,13 @@ export const LOGOUT_USER_START = 'LOGOUT_USER_START';
 export const LOGOUT_USER_FAIL = 'LOGOUT_USER_FAIL';
 export const LOGOUT_USER_SUCCESS = 'LOGOUT_USER_SUCCESS';
 
+/**
+ * Offers
+ */
+export const FIND_OFFERS = 'FIND_OFFERS';
+export const FIND_OFFERS_START = 'FIND_OFFERS_START';
+export const FIND_OFFERS_FAIL = 'FIND_OFFERS_FAIL';
+export const FIND_OFFERS_SUCCESS = 'FIND_OFFERS_SUCCESS';
 
 /** 
  * Area Actions
