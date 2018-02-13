@@ -9,11 +9,11 @@ import { Button } from 'components/tools';
 
 import Styles from './styles';
 
-const ButtonGroupInput = ({ input: { onChange, value }, onPress, buttons, buttonsType, goToListScreen }) => (
+const ButtonGroupInput = ({ input: { onChange, value }, onPress, buttons, buttonsType, getLocation }) => (
   <View style={{ marginTop: 10 }}>
     <Button.CustomButtonGroup
       onPress={(selectedIndex) => {
-        goToListScreen && goToListScreen(buttonsType[selectedIndex]);
+        getLocation && getLocation(buttonsType[selectedIndex]);
         onChange(buttonsType[selectedIndex]);
         setTimeout(onPress);
       }}
@@ -23,7 +23,7 @@ const ButtonGroupInput = ({ input: { onChange, value }, onPress, buttons, button
     {value.name &&
       <View style={Styles.buttonGroupTextContainer}>
         <TouchableOpacity
-          onPress={() => goToListScreen(value.type)}
+          onPress={() => getLocation(value.type)}
           style={{ flexDirection: 'row' }}
         >
           <View style={{ flex: 1 }}>

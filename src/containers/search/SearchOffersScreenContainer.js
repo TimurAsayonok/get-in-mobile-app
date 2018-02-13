@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { authActions } from 'actions';
+import { offersActions } from 'actions';
 import { authSelector } from 'selectors';
 
 import SearchComponent from 'components/search/SearchComponent';
@@ -16,6 +16,8 @@ class SearchOffersScreenContainer extends Component {
 
     this.state = {
     };
+
+    this.onSubmit = this.onSubmit.bind(this);
   }
 
   render() {
@@ -24,8 +26,15 @@ class SearchOffersScreenContainer extends Component {
         screenTitle={SEARCH_SCREEN_TITLE}
         navigator={this.props.navigator}
         dispatch={this.props.dispatch}
+        onButtomPress={this.onSubmit}
       />
     );
+  }
+
+  onSubmit(values) {
+    const { dispatch } = this.props;
+
+    dispatch(offersActions.findOffers(values));
   }
 }
 

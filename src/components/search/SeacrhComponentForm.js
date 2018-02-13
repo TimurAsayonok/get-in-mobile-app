@@ -13,7 +13,7 @@ import {
 import Styles from './styles';
 
 const SearchFormComponent = (props) => {
-  const { submit, goToListScreen } = props;
+  const { submit, getLocation } = props;
   return (
     <View>
       <View style={Styles.whatContainer}>
@@ -32,7 +32,7 @@ const SearchFormComponent = (props) => {
           component={Forms.ButtonGroupInput}
           buttons={LOCATION_TYPE_BUTTONS_NAME}
           buttonsType={LOCATION_TYPES}
-          goToListScreen={goToListScreen}
+          getLocation={getLocation}
         />
       </View>
       <View style={Styles.priceContainer}>
@@ -40,7 +40,7 @@ const SearchFormComponent = (props) => {
         <View style={Styles.priceInputs}>
           <Field
             name="from"
-            onPress={submit}
+            onBlur={submit}
             component={Forms.TextInputForm}
             props={{
               title: 'From'
@@ -48,7 +48,7 @@ const SearchFormComponent = (props) => {
           />
           <Field
             name="to"
-            onPress={submit}
+            onBlur={submit}
             component={Forms.TextInputForm}
             props={{
               title: 'To'
