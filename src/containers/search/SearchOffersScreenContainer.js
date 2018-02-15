@@ -43,7 +43,7 @@ class SearchOffersScreenContainer extends Component {
     if (offersStatus.isFound) {
       this.props.navigator.push({
         screen: 'ResultsScreen',
-        title: 'Refults'
+        title: 'Results'
       });
     }
   }

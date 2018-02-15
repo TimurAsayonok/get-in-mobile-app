@@ -1,33 +1,27 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 
 import { scale, verticalScale, moderateScale } from 'utils/scale';
 import { TextColors, TITLE_COLOR } from 'constants/UIStyles';
 
-const TaskListItemStyles = StyleSheet.create({
+const { width } = Dimensions.get('window');
+
+const ListItemStyles = StyleSheet.create({
   container: {
-    shadowColor: '#ccc',
-    shadowOffset: {
-      width: 0,
-      height: 1
-    },
-    shadowRadius: 1,
-    shadowOpacity: 0.7,
-    elevation: 2,
-    marginBottom: verticalScale(15)
-  },
-  containerInfo: {
     flex: 1,
-    borderColor: '#F7F7F7',
+    marginTop: verticalScale(10),
+    borderRadius: 5,
+    borderColor: '#BFBFBF',
     borderWidth: 1,
-    backgroundColor: "#ffffff",
-    paddingTop: verticalScale(5),
-    paddingHorizontal: scale(10),
-    paddingBottom: verticalScale(15)
   },
-  titleContainer: {
-    marginBottom: verticalScale(3)
+  content: {
+    margin: scale(5)
   },
-  titleText: {}
+  left: {
+    flex: 1
+  },
+  offerHeader: {
+    flexDirection: 'row'
+  }
 });
 
 const InfoListItemStyles = StyleSheet.create({
@@ -66,32 +60,5 @@ const ListDataItemStyles = StyleSheet.create({
   }
 });
 
-const ProductListItemStyles = StyleSheet.create({
-  bodyItemContainer: {
-    flex: 1,
-    flexDirection: 'row',
-    paddingHorizontal: scale(10),
-    paddingVertical: verticalScale(8),
-    marginTop: verticalScale(3),
-    borderBottomWidth: StyleSheet.hairlineWidth,
-    borderColor: '#dfdfdf'
-  },
-  itemImageContainer: {
-    borderWidth: StyleSheet.hairlineWidth,
-    borderColor: '#eee',
-    paddingVertical: verticalScale(10),
-    justifyContent: 'center',
-  },
-  borderLeft: {
-    borderLeftWidth: 4
-  },
-  productImage: {
-    width: scale(80),
-    height: scale(45)
-  },
-  productTextContainer: {
-    marginLeft: verticalScale(5)
-  }
-});
 
-export { TaskListItemStyles, InfoListItemStyles, ListDataItemStyles, ProductListItemStyles };
+export { ListItemStyles, InfoListItemStyles, ListDataItemStyles };

@@ -26,7 +26,7 @@ export const COLORS = {
   white: '#fff',
   grey: '#D5D5D5',
   grey2: '#333',
-  black: '#525252',
+  black: '#333333',
 };
 
 export const AppTitleStyle = {
@@ -76,7 +76,7 @@ export const TextStyle = StyleSheet.create({
   },
   callout: {
     fontSize: 16,
-    color: COLORS.grey2
+    color: '#888888'
   },
   subHead: {
     fontSize: 15,

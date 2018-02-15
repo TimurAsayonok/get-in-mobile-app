@@ -23,6 +23,7 @@
     "mocha": true
   },
   "rules": {
+    "camelcase": "off",
     "linebreak-style": "off",
     "no-empty": "off", // Разрешим использование пустых блоков
     "react/jsx-filename-extension": "off", //Используем расширение js вместо jsx
@@ -58,29 +59,22 @@
       }
     ],
     "react/forbid-prop-types": "off", //Разрешим в proptypes типы object и т.д
-    "import/no-extraneous-dependencies": [
-      //Если в коде импортируются зависимости, расположенные в devDepednecies, то их стоит перенести просто в dependences
-      "error",
-      {
-        "devDependencies": true,
-        "optionalDependencies": false,
-        "peerDependencies": true
-      }
-    ],
+    "import/no-duplicates": "off",
+    "import/no-extraneous-dependencies": "off",
     "import/no-unresolved": [ //Игнорируем ошибку с модулями проекта
       "error",
       {
         "ignore": [
-          "^components/",
-          "^config/",
-          "^constants/",
-          "^images/",
-          "^libs/",
-          "^modules/",
-          "^store/",
-          "^utils/",
-          "^actions/",
-          "^selectors/"
+          "^components",
+          "^config",
+          "^constants",
+          "^images",
+          "^libs",
+          "^modules",
+          "^store",
+          "^utils",
+          "^actions",
+          "^selectors"
         ]
       }
     ],

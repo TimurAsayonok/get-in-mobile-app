@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { View, Text } from 'react-native';
+import { View, Text, ScrollView } from 'react-native';
 
-import { offersActions } from 'actions';
 import { resultsSelector } from 'selectors';
+import { List, Title } from 'components/tools';
 
 import { NAVIGATION_STYLES } from 'constants/UIStyles';
-import { SEARCH_SCREEN_TITLE } from 'constants/texts';
+import { RESULTS_SCREEN_TITLE } from 'constants/texts';
+
+import Styles from './styles';
 
 class ResultsScreenContainer extends Component {
 
@@ -19,11 +21,16 @@ class ResultsScreenContainer extends Component {
   }
 
   render() {
+    const { offers } = this.props;
     console.log(this.props);
     return (
-      <View>
-        <Text>dfgsdf</Text>
-      </View>
+      <ScrollView contentContainerStyle={Styles.content}>
+        <Title title={RESULTS_SCREEN_TITLE} />
+        {offers && offers.map(offer => (
+          <List.OfferListItem key={offer._id} offer={offer}/>
+        ))}
+
+      </ScrollView>
     );
   }
 }
@@ -31,6 +38,7 @@ class ResultsScreenContainer extends Component {
 ResultsScreenContainer.propTypes = {
   dispatch: PropTypes.func.isRequired,
   navigator: PropTypes.object.isRequired,
+  offers: PropTypes.array.isRequired
 };
 
 ResultsScreenContainer.navigatorStyle = { ...NAVIGATION_STYLES };

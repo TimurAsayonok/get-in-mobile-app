@@ -1,13 +1,7 @@
-import ListContent from './ListContent';
-import TaskListItem from './TaskListItem';
-import InfoListItem from './InfoListItem';
+import OfferListItem from './OfferListItem';
 import ListDataItem from './ListDataItem';
-import ProductListItem from './ProductListItem';
 
 export {
-  ListContent,
-  TaskListItem,
-  InfoListItem,
-  ListDataItem,
-  ProductListItem
+  OfferListItem,
+  ListDataItem
 };
