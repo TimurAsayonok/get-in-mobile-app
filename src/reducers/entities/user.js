@@ -14,9 +14,17 @@ export default function (state = initialState, action) {
 
       return {
         ...state,
-        ...payload
+        ...payload.payload,
+        chosenOffers: payload.payload.favorite_offers
       };
 
+    case Actions.ADD_CHOSEN_OFFER_SUCCESS:
+      console.log(payload);
+
+      return {
+        ...state,
+        chosenOffers: payload.payload
+      };
     default:
       return state;
   }

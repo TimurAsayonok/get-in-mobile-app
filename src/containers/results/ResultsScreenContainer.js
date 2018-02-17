@@ -18,6 +18,8 @@ class ResultsScreenContainer extends Component {
 
     this.state = {
     };
+
+    this.openOffer = this.openOffer.bind(this);
   }
 
   render() {
@@ -27,11 +29,28 @@ class ResultsScreenContainer extends Component {
       <ScrollView contentContainerStyle={Styles.content}>
         <Title title={RESULTS_SCREEN_TITLE} />
         {offers && offers.map(offer => (
-          <List.OfferListItem key={offer._id} offer={offer}/>
+          <List.OfferListItem key={offer._id} offer={offer} onOpen={this.openOffer}/>
         ))}
 
       </ScrollView>
     );
+  }
+
+  openOffer(offer) {
+    const { navigator } = this.props;
+
+    console.log(offer);
+
+    navigator.showModal({
+      screen: "OfferScreen", // unique ID registered with Navigation.registerScreen
+      passProps: {
+        offer
+      }, // simple serializable object that will pass as props to the modal (optional)
+      // navigatorStyle: {
+      //   statusBarHidden: true
+      // }, // override the navigator style for the screen, see "Styling the navigator" below (optional)
+      animationType: 'slide-up'
+    })
   }
 }
 

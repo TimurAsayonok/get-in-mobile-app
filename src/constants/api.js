@@ -22,5 +22,5 @@ export const FIND_OFFERS_ENDPOINT = '/find_offers';
 
 /** user */
 export const USER_ENDPOINT = '/user/';
-export const GET_FAVORITES_OFFERS_ENDPOINT = '/favorite_offers/';
-export const ADD_DELETE_FAV_ENDPOINT = '/add_favorite_offer/';
+export const GET_CHOSEN_OFFERS_ENDPOINT = '/chosen_offers';
+export const CHOSEN_OFFER_ENDPOINT = '/chosen_offer';

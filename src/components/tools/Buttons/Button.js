@@ -17,12 +17,13 @@ class Button extends Component {
   }
 
   render() {
-    const { title, style, titleStyle, backgroundColor, titleColor, onPress } = this.props;
+    const { title, style, titleStyle, backgroundColor, titleColor, onPress, ...customProps } = this.props;
 
     return (
       <TouchableOpacity
         onPress={onPress}
         style={[Styles.button, style, { backgroundColor, borderColor: backgroundColor }]}
+        {...customProps}
       >
         <Text style={[Styles.buttonTitle, titleStyle, { color: titleColor }]}>{title}</Text>
       </TouchableOpacity>

@@ -17,7 +17,7 @@ class CustomButton extends Component {
   }
 
   render() {
-    const { status, onPress, style, buttons, button } = this.props;
+    const { status, onPress, style, buttons, button, ...buttonProps } = this.props;
     return (
       <Button
         title={button ? button.title : buttons[status].title}
@@ -25,6 +25,7 @@ class CustomButton extends Component {
         titleColor={button ? button.color : buttons[status].color}
         onPress={onPress}
         style={style}
+        {...buttonProps}
       />
     );
   }

@@ -24,6 +24,18 @@ export const SEARCH_BUTTON = {
   backgroundColor: COLORS.blue
 };
 
+export const GET_IN_BUTTON = {
+  title: 'Get In',
+  color: COLORS.white,
+  backgroundColor: COLORS.blue
+};
+
+export const ADDED_BUTTON = {
+  title: 'Chosen',
+  color: COLORS.black,
+  backgroundColor: COLORS.grey
+};
+
 export const LOCATION_BUTTONS = [
   {
     title: 'Apartment',

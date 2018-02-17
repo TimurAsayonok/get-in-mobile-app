@@ -3,7 +3,6 @@ import { getFetch } from 'config/fetch';
 import { FIND_OFFERS_ENDPOINT } from 'constants/api';
 
 export const findOffers = (values) => async (dispatch) => {
-  console.log(values)
   const validValues = {
     type: values.type,
     roomNumbers: values.room,
@@ -18,8 +17,6 @@ export const findOffers = (values) => async (dispatch) => {
       to: values.to
     }
   }
-
-  console.log(validValues);
 
   try {
     return await dispatch({

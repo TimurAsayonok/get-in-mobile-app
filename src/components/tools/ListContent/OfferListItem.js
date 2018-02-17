@@ -17,7 +17,10 @@ import _ from 'lodash';
 const OfferListItem = (props) => {
   const { offer } = props;
   return (
-    <TouchableOpacity style={Styles.container}>
+    <TouchableOpacity
+      style={Styles.container}
+      onPress={() => props.onOpen(offer)}  
+    >
       <Image
         style={{ height: 140 }}
         source={{ uri: offer.photo }}
@@ -27,17 +30,7 @@ const OfferListItem = (props) => {
       />
       <View style={Styles.content}>
         <View style={Styles.offerHeader}>
-          <View style={Styles.left}>
-            <Text style={TextStyle.headLine}>{offer.name}</Text>
-          </View>
-          <View style={Styles.right}>
-            {/* // image */}
-            <ResponsiveImage
-              source={require('images/favoriteRed.png')}
-              initWidth={scale(17)}
-              initHeight={scale(16)}
-            />
-          </View>
+          <Text style={TextStyle.headLine}>{offer.name}</Text>
         </View>
         <View style={Styles.body}>
           <Rating
