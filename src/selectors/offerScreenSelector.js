@@ -7,3 +7,10 @@ export const offerSelector = createSelector(
     chosenOffers: user.chosenOffers
   })
 );
+
+export const chosenSelector = createSelector(
+  state => state.entities.user,
+  user => ({
+    chosenOffers: user.chosenOffers
+  })
+);

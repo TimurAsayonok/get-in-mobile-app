@@ -34,8 +34,8 @@ export const enterToAppScreenTabs = () => {
         title: APP_TITLE
       },
       {
-        label: 'Favorites',
-        screen: 'FavoritesScreen', // this is a registered name for a screen
+        label: 'Chosen',
+        screen: 'ChosenOffersScreen', // this is a registered name for a screen
         icon: require('images/favoriteTab.png'),
         selectedIcon: require('images/favoritesSelectedTab.png'), // iOS only
         title: APP_TITLE

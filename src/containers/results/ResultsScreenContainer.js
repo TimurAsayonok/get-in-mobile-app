@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { View, Text, ScrollView } from 'react-native';
+import { ScrollView } from 'react-native';
 
 import { resultsSelector } from 'selectors';
 import { List, Title } from 'components/tools';
@@ -24,7 +24,7 @@ class ResultsScreenContainer extends Component {
 
   render() {
     const { offers } = this.props;
-    console.log(this.props);
+
     return (
       <ScrollView contentContainerStyle={Styles.content}>
         <Title title={RESULTS_SCREEN_TITLE} />
@@ -42,13 +42,10 @@ class ResultsScreenContainer extends Component {
     console.log(offer);
 
     navigator.showModal({
-      screen: "OfferScreen", // unique ID registered with Navigation.registerScreen
+      screen: "OfferScreen",
       passProps: {
         offer
-      }, // simple serializable object that will pass as props to the modal (optional)
-      // navigatorStyle: {
-      //   statusBarHidden: true
-      // }, // override the navigator style for the screen, see "Styling the navigator" below (optional)
+      },
       animationType: 'slide-up'
     })
   }

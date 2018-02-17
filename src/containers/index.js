@@ -8,8 +8,8 @@ import SearchOffersScreenContainer from './search/SearchOffersScreenContainer';
 import ResultsScreenContainer from './results/ResultsScreenContainer';
 import OfferScreenContainer from './offer/OfferScreenContainer';
 
-/** Favorites screens */
-import FavoritesScreenContainer from './favorites/FavoritesScreenContainer';
+/** ChosenOffers screens */
+import ChosenOffersScreenContainer from './chosenOffers/ChosenOffersScreenContainer';
 
 /** More screens */
 import MoreScreenContainer from './more/MoreScreenContainer';
@@ -25,7 +25,7 @@ export default function registerScreens(store, Provider) {
   Navigation.registerComponent('SearchOffersScreen', () => SearchOffersScreenContainer, store, Provider);
   Navigation.registerComponent('OfferScreen', () => OfferScreenContainer, store, Provider);
   Navigation.registerComponent('ResultsScreen', () => ResultsScreenContainer, store, Provider);
-  Navigation.registerComponent('FavoritesScreen', () => FavoritesScreenContainer, store, Provider);
+  Navigation.registerComponent('ChosenOffersScreen', () => ChosenOffersScreenContainer, store, Provider);
   Navigation.registerComponent('MoreScreen', () => MoreScreenContainer, store, Provider);
   Navigation.registerComponent('ChatsScreen', () => ChatsScreenContainer, store, Provider);
   Navigation.registerComponent('ListScreen', () => ListScreenContainer, store, Provider);
