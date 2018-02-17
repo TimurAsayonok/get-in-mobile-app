@@ -45,6 +45,8 @@ ChosenOffersScreenContainer.propTypes = {
   chosenOffers: PropTypes.array.isRequired
 };
 
-ChosenOffersScreenContainer.navigatorStyle = { ...NAVIGATION_STYLES_MAIN };
+ChosenOffersScreenContainer.navigatorStyle = {
+  ...NAVIGATION_STYLES_MAIN
+};
 
 export default connect(chosenSelector, dispatch => ({ dispatch }))(ChosenOffersScreenContainer);

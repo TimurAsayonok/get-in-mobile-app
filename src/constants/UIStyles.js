@@ -109,6 +109,7 @@ export const ButtonStyles = {
   navBarBackgroundColor: SCREEN_GRADIENT_TOP,
   navBarButtonColor: '#fff',
   tabBarHidden: true,
+   navBarNoBorder: true,
   //android
   navBarTitleTextCentered: true
  }
@@ -131,6 +132,7 @@ export const MODAL_NAVIGATION_STYLES = {
   statusBarColor: SCREEN_GRADIENT_TOP,
   navBarBackgroundColor: SCREEN_GRADIENT_TOP,
   navBarButtonColor: '#fff',
+   navBarNoBorder: true,
   //android
   navBarTitleTextCentered: true
  }

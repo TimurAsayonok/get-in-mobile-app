@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { ScrollView, Text } from 'react-native';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 
-import { authActions } from 'actions';
-import { authSelector } from 'selectors';
+import { userActions } from 'actions';
+import { chatsSelector } from 'selectors';
+import { List, Title } from 'components/tools';
 
-import ChatsComponent from 'components/chats/ChatsComponent';
 import { NAVIGATION_STYLES_MAIN } from 'constants/UIStyles';
 import { CHATS_SCREEN_TITLE } from 'constants/texts';
+
+import Styles from './styles';
 
 class ChatsScreenContainer extends Component {
 
@@ -21,14 +23,21 @@ class ChatsScreenContainer extends Component {
   }
 
   componentWillMount() {
-    // this.props.dispatch(authActions.getAreas());
+    this.props.dispatch(userActions.getUserChats(this.props.userId));
   }
 
   render() {
+    const { chats } = this.props;
     return (
-      <ChatsComponent
-        screenTitle={CHATS_SCREEN_TITLE}
-      />
+      <ScrollView contentContainerStyle={Styles.content}>
+        <Title title={CHATS_SCREEN_TITLE} />
+        {!_.isEmpty(chats) && chats.map(chat => (
+          <List.ChatListItem key={chat._id} chat={chat} />
+        ))}
+        {_.isEmpty(chats) &&
+          <Title>List is empty</Title>
+        }
+      </ScrollView>
     );
   }
 
@@ -37,8 +46,10 @@ class ChatsScreenContainer extends Component {
 ChatsScreenContainer.propTypes = {
   dispatch: PropTypes.func.isRequired,
   navigator: PropTypes.object.isRequired,
+  userId: PropTypes.number.isRequired,
+  chats: PropTypes.array.isRequired
 };
 
 ChatsScreenContainer.navigatorStyle = { ...NAVIGATION_STYLES_MAIN };
 
-export default connect(authSelector, dispatch => ({ dispatch }))(ChatsScreenContainer);
+export default connect(chatsSelector, dispatch => ({ dispatch }))(ChatsScreenContainer);

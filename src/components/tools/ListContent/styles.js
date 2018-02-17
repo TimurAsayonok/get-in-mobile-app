@@ -1,9 +1,6 @@
-import { StyleSheet, Dimensions } from 'react-native';
+import { StyleSheet } from 'react-native';
 
-import { scale, verticalScale, moderateScale } from 'utils/scale';
-import { TextColors, TITLE_COLOR } from 'constants/UIStyles';
-
-const { width } = Dimensions.get('window');
+import { scale, verticalScale } from 'utils/scale';
 
 const ListItemStyles = StyleSheet.create({
   container: {
@@ -21,6 +18,20 @@ const ListItemStyles = StyleSheet.create({
   },
   offerHeader: {
     flexDirection: 'row'
+  },
+  chatContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    margin: scale(10),
+  },
+  chatHeader: {
+    flex: 1,
+    flexDirection: 'row',
+    marginLeft: scale(5)
+  },
+  body: {
+    marginLeft: scale(5),
+    flex: 1
   }
 });
 

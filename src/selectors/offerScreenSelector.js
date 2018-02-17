@@ -14,3 +14,12 @@ export const chosenSelector = createSelector(
     chosenOffers: user.chosenOffers
   })
 );
+
+export const chatsSelector = createSelector(
+  state => state.entities.user,
+  state => state.entities.chats,
+  (user, chats) => ({
+    userId: user._id,
+    chats
+  })
+);

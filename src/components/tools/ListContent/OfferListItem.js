@@ -6,20 +6,18 @@ import {
   Image,
   TouchableOpacity
 } from 'react-native';
-import ResponsiveImage from 'react-native-responsive-image';
 import { Rating } from 'react-native-elements';
 
 import { TextStyle } from 'constants/UIStyles';
 import { ListItemStyles as Styles } from './styles';
-import { scale, verticalScale } from 'utils/scale';
-import _ from 'lodash';
+import { verticalScale } from 'utils/scale';
 
 const OfferListItem = (props) => {
   const { offer } = props;
   return (
     <TouchableOpacity
       style={Styles.container}
-      onPress={() => props.onOpen(offer)}  
+      onPress={() => props.onOpen && props.onOpen(offer)}
     >
       <Image
         style={{ height: 140 }}
@@ -56,6 +54,7 @@ const OfferListItem = (props) => {
 
 OfferListItem.propTypes = {
   offer: PropTypes.object.isRequired,
+  onOpen: PropTypes.func.isRequired
 };
 
-export default OfferListItem
+export default OfferListItem;
