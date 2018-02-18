@@ -3,35 +3,22 @@ import PropTypes from 'prop-types';
 import {
   View,
   TextInput,
-  Text
+  Text,
+  TouchableOpacity
 } from 'react-native';
 import { reduxForm, Field } from 'redux-form';
-import ResponsiveImage from 'react-native-responsive-image';
+
+import { Forms } from 'components/tools';
 import { scale } from 'utils/scale';
 
-
 import Styles from './styles';
-
-const errorMessage = (message) => {
-  return (
-    <View style={Styles.errorContainer}>
-      <ResponsiveImage
-        source={require('images/icn-error.png')}
-        initWidth={scale(20)}
-        initHeight={scale(20)}
-        style={Styles.imageError}
-      />
-      <Text style={Styles.textError}>{message}</Text>
-    </View>
-  );
-};
 
 const CustomTextInput = ({ input, meta, containerStyle, ...inputProps }) => {
   return (
     <View style={containerStyle}>
       <TextInput
         {...inputProps}
-        placeholderTextColor={!meta.valid && meta.touched ? '#E53935' : '#fff'}
+        placeholderTextColor={!meta.valid && meta.touched ? '#E53935' : '#333'}
         underlineColorAndroid="transparent"
         autoCapitalize="none"
         style={[Styles.input, !meta.valid && meta.touched ? Styles.inputError : null]}
@@ -40,7 +27,7 @@ const CustomTextInput = ({ input, meta, containerStyle, ...inputProps }) => {
         onFocus={input.onFocus}
         value={input.value}
       />
-      {!meta.valid && meta.touched ? errorMessage(meta.error) : null}
+      {!meta.valid && meta.touched ? <Forms.ErrorMessageForm message={meta.error} errorColor="#E53935" /> : null}
     </View>
   );
 };
@@ -53,18 +40,34 @@ CustomTextInput.propTypes = {
 
 CustomTextInput.defaultProps = {
   containerStyle: null
-};
+}
 
 const required = value => (value ? undefined : 'Field is required');
 
-const AuthComponentForm = (props) => {
-  const { submit } = props;
+const SignUpComponentForm = (props) => {
+  const { submit, errorMessage } = props;
   return (
-    <View>
+    <View style={{ marginTop: scale(10) }}>
+      <Field
+        name="first_name"
+        placeholder="First name"
+        component={CustomTextInput}
+        validate={[required]}
+      />
+
+      <Field
+        name="last_name"
+        placeholder="Last name"
+        component={CustomTextInput}
+        containerStyle={Styles.marginTopButton}
+        validate={[required]}
+      />
+
       <Field
         name="email"
         placeholder="Email"
         component={CustomTextInput}
+        containerStyle={Styles.marginTopButton}
         validate={[required]}
       />
 
@@ -76,12 +79,20 @@ const AuthComponentForm = (props) => {
         containerStyle={Styles.marginTopButton}
         validate={[required]}
       />
+      {errorMessage && <Forms.ErrorMessageForm message={errorMessage} errorColor="#E53935" />}
+      <TouchableOpacity
+        onPress={submit}
+        style={Styles.signUpButtonContainer}
+      >
+        <Text style={[Styles.buttonText, { color: '#FFF' }]}>Sign Up</Text>
+      </TouchableOpacity>
     </View>
   );
-}
-
-AuthComponentForm.propTypes = {
-  submit: PropTypes.func.isRequired
 };
 
-export default reduxForm({ form: 'loginForm' })(AuthComponentForm);
+SignUpComponentForm.propTypes = {
+  submit: PropTypes.func.isRequired,
+  errorMessage: PropTypes.string
+};
+
+export default reduxForm({ form: 'signUpForm' })(SignUpComponentForm);

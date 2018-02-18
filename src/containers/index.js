@@ -2,6 +2,7 @@ import { Navigation } from 'react-native-navigation';
 
 /**Auth screens */
 import LoginScreenContainer from './auth/LoginScreenContainer';
+import SignUpScreenContainer from './auth/SignUpScreenContainer';
 
 /** Search offers screens */
 import SearchOffersScreenContainer from './search/SearchOffersScreenContainer';
@@ -22,6 +23,7 @@ import ListScreenContainer from './list/ListScreenContainer';
 
 export default function registerScreens(store, Provider) {
   Navigation.registerComponent('LoginScreen', () => LoginScreenContainer, store, Provider);
+  Navigation.registerComponent('SignUpScreen', () => SignUpScreenContainer, store, Provider);
   Navigation.registerComponent('SearchOffersScreen', () => SearchOffersScreenContainer, store, Provider);
   Navigation.registerComponent('OfferScreen', () => OfferScreenContainer, store, Provider);
   Navigation.registerComponent('ResultsScreen', () => ResultsScreenContainer, store, Provider);

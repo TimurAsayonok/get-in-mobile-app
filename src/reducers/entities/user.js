@@ -11,6 +11,7 @@ export default function (state = initialState, action) {
 
   switch (type) {
     case Actions.LOGIN_USER_SUCCESS:
+    case Actions.SIGN_UP_USER_SUCCESS:
 
       return {
         ...state,

@@ -17,7 +17,6 @@ const Styles = StyleSheet.create({
     width: scale(20)
   },
   container: {
-    marginTop: verticalScale(30),
     paddingHorizontal: verticalScale(40)
   },
   errorContainer: {
@@ -28,14 +27,13 @@ const Styles = StyleSheet.create({
     fontSize: moderateScale(17),
     borderRadius: scale(10),
     borderWidth: 2,
-    borderColor: '#fff',
-    color: '#fff',
+    borderColor: '#333',
+    color: '#333',
     paddingHorizontal: scale(10),
     paddingVertical: verticalScale(10)
   },
   inputError: {
     borderColor: '#FF3333',
-    backgroundColor: '#FFF',
     borderWidth: 2,
     color: '#FF3333',
   },
@@ -51,11 +49,10 @@ const Styles = StyleSheet.create({
     borderRadius: scale(28.5),
   },
   signUpButtonContainer: {
-    marginTop: verticalScale(10),
+    marginTop: verticalScale(30),
     padding: scale(10),
     borderRadius: scale(28.5),
-    borderWidth: 2,
-    borderColor: '#fff',
+    backgroundColor: '#5AC8FA'
   },
   buttonText: {
     fontSize: moderateScale(17),

@@ -109,7 +109,7 @@ export const ButtonStyles = {
   navBarBackgroundColor: SCREEN_GRADIENT_TOP,
   navBarButtonColor: '#fff',
   tabBarHidden: true,
-   navBarNoBorder: true,
+  navBarNoBorder: true,
   //android
   navBarTitleTextCentered: true
  }

@@ -30,7 +30,7 @@ class AuthComponent extends Component {
   }
 
   render() {
-    const { login, errorMessage } = this.props;
+    const { login, signUp, errorMessage } = this.props;
     const { loginDetails } = this.state;
     
     return (
@@ -57,7 +57,7 @@ class AuthComponent extends Component {
             <Text style={Styles.buttonText}>Login</Text>
           </TouchableOpacity>
           <TouchableOpacity
-            onPress={() => login(loginDetails)}
+            onPress={signUp}
             style={Styles.signUpButtonContainer}
           >
             <Text style={[Styles.buttonText, { color: '#FFF' }]}>Sign Up</Text>
@@ -73,6 +73,7 @@ class AuthComponent extends Component {
 
 AuthComponent.propTypes = {
   login: PropTypes.func.isRequired,
+  signUp: PropTypes.func.isRequired,
   errorMessage: PropTypes.string.isRequired
 };
 

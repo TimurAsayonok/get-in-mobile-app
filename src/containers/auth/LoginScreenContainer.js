@@ -23,6 +23,7 @@ class LoginScreenContainer extends Component {
     };
 
     this.loginToApp = this.loginToApp.bind(this);
+    this.goToSignUpScreen = this.goToSignUpScreen.bind(this);
   }
 
   componentWillReceiveProps(newProps) {
@@ -44,6 +45,7 @@ class LoginScreenContainer extends Component {
         {isFetching && <PreLoaderIndicator />}
         <AuthComponent
           login={this.loginToApp}
+          signUp={this.goToSignUpScreen}
           errorMessage={errorMessage}
         />
       </LinearGradient>
@@ -58,6 +60,15 @@ class LoginScreenContainer extends Component {
         dispatch(authActions.login(values));
       }
     }
+  }
+
+  goToSignUpScreen() {
+    const { navigator } = this.props;
+
+    navigator.push({
+      screen: 'SignUpScreen',
+      title: undefined,
+    });
   }
 }
 

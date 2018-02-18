@@ -6,12 +6,12 @@ export const LOGIN_USER_START = 'LOGIN_USER_START';
 export const LOGIN_USER_FAIL = 'LOGIN_USER_FAIL';
 export const LOGIN_USER_SUCCESS = 'LOGIN_USER_SUCCESS';
 
-export const LOGOUT_USER = 'LOGOUT_USER';
-export const LOGOUT_USER_START = 'LOGOUT_USER_START';
-export const LOGOUT_USER_FAIL = 'LOGOUT_USER_FAIL';
-export const LOGOUT_USER_SUCCESS = 'LOGOUT_USER_SUCCESS';
-
 export const LOGOUT = 'LOGOUT';
+
+export const SIGN_UP_USER = 'SIGN_UP_USER';
+export const SIGN_UP_USER_START = 'SIGN_UP_USER_START';
+export const SIGN_UP_USER_SUCCESS = 'SIGN_UP_USER_SUCCESS';
+export const SIGN_UP_USER_FAIL = 'SIGN_UP_USER_FAIL';
 
 /**
  * Offers

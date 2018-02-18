@@ -5,7 +5,7 @@ import ResponsiveImage from 'react-native-responsive-image';
 import { scale } from 'utils/scale';
 import Styles from './styles';
 
-const errorMessage = ({ message }) => (
+const errorMessage = ({ message, errorColor }) => (
   <View style={Styles.errorContainer}>
     <ResponsiveImage
       source={require('images/icn-error.png')}
@@ -13,12 +13,17 @@ const errorMessage = ({ message }) => (
       initHeight={scale(20)}
       style={Styles.imageError}
     />
-    <Text style={Styles.textError}>{message}</Text>
+    <Text style={[Styles.textError, { color: errorColor }]}>{message}</Text>
   </View>
 );
 
 errorMessage.propTypes = {
-  message: PropTypes.string.isRequired
+  message: PropTypes.string.isRequired,
+  errorColor: PropTypes.string
 };
+
+errorMessage.defaultProps = {
+  errorColor: '#FFF'
+}
 
 export default errorMessage;
