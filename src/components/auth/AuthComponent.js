@@ -26,7 +26,7 @@ class AuthComponent extends Component {
   }
 
   render() {
-    const { login, signUp, errorMessage } = this.props;
+    const { login, signUp, errorMessage, remindPassword } = this.props;
     const { loginDetails } = this.state;
     
     return (
@@ -45,6 +45,7 @@ class AuthComponent extends Component {
             onSubmit={values => login(values)}
             initialValues={loginDetails}
             errorMessage={errorMessage}
+            remindPassword={remindPassword}
             signUp={signUp}
           />
         </View>
@@ -56,6 +57,7 @@ class AuthComponent extends Component {
 AuthComponent.propTypes = {
   login: PropTypes.func.isRequired,
   signUp: PropTypes.func.isRequired,
+  remindPassword: PropTypes.func.isRequired,
   errorMessage: PropTypes.string.isRequired
 };
 

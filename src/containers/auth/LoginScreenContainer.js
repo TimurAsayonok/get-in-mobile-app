@@ -24,6 +24,7 @@ class LoginScreenContainer extends Component {
 
     this.loginToApp = this.loginToApp.bind(this);
     this.goToSignUpScreen = this.goToSignUpScreen.bind(this);
+    this.goToRemindPasswordScreen = this.goToRemindPasswordScreen.bind(this);
   }
 
   componentWillReceiveProps(newProps) {
@@ -46,6 +47,7 @@ class LoginScreenContainer extends Component {
         <AuthComponent
           login={this.loginToApp}
           signUp={this.goToSignUpScreen}
+          remindPassword={this.goToRemindPasswordScreen}
           errorMessage={errorMessage}
         />
       </LinearGradient>
@@ -67,6 +69,15 @@ class LoginScreenContainer extends Component {
 
     navigator.push({
       screen: 'SignUpScreen',
+      title: undefined,
+    });
+  }
+
+  goToRemindPasswordScreen() {
+    const { navigator } = this.props;
+
+    navigator.push({
+      screen: 'RemindPasswordScreen',
       title: undefined,
     });
   }

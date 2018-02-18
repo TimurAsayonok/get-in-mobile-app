@@ -8,6 +8,7 @@ import chats from './entities/chats';
 
 import authStatus from './status/auth';
 import offersStatus from './status/offersStatus';
+import remindPasswordStatus from './status/remindPasswordStatus';
 
 export default combineReducers({
   entities: combineReducers({
@@ -18,7 +19,8 @@ export default combineReducers({
   }),
   status: combineReducers({
     authStatus,
-    offersStatus
+    offersStatus,
+    remindPasswordStatus
   }),
   form
 });

@@ -6,3 +6,10 @@ export const authSelector = createSelector(
     authStatus
   })
 );
+
+export const remindPasswordSelector = createSelector(
+  state => state.status.remindPasswordStatus,
+  remindPasswordStatus => ({
+    remindPasswordStatus
+  })
+);

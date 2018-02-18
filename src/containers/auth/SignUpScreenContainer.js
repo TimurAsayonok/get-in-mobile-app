@@ -2,17 +2,14 @@ import React, { Component } from 'react';
 import { View } from 'react-native';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import _ from 'lodash';
 
 import { authActions } from 'actions';
 import { authSelector } from 'selectors';
-import { List, Title } from 'components/tools';
 import { enterToAppScreenTabs } from 'root';
 
 import { PreLoaderIndicator } from 'components/tools';
 import SignUpComponent from 'components/signUp/SignUpComponent';
 import { NAVIGATION_STYLES_MAIN } from 'constants/UIStyles';
-import { CHATS_SCREEN_TITLE } from 'constants/texts';
 
 class SignUpScreenContainer extends Component {
 
