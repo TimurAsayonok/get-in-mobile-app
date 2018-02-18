@@ -16,11 +16,11 @@ export default function (state = initialState, action) {
   switch (type) {
     case Actions.LOGIN_USER_START:
     case Actions.SIGN_UP_USER_START:
-      return { ...state, isFetching: true };
+      return { ...state, isFetching: true, error: '' };
 
     case Actions.LOGIN_USER_SUCCESS:
     case Actions.SIGN_UP_USER_SUCCESS:
-      return { ...state, isFetching: false, isEntered: true };
+      return { ...state, isFetching: false, isEntered: true, error: '' };
 
     case Actions.LOGIN_USER_FAIL:
     case Actions.SIGN_UP_USER_FAIL:

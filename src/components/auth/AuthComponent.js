@@ -10,7 +10,7 @@ import { Content } from 'native-base';
 
 import { Forms } from 'components/tools';
 import { scale } from 'utils/scale';
-import { AppTitleStyle, APP_TITLE, TextStyle } from 'constants/UIStyles'
+import { AppTitleStyle, APP_TITLE } from 'constants/UIStyles';
 import AuthComponentForm from './AuthComponentForm';
 
 import Styles from './styles';
@@ -22,10 +22,6 @@ class AuthComponent extends Component {
     super(props);
 
     this.state = {
-      loginDetails: {
-        email: null,
-        password: null
-      }
     };
   }
 
@@ -46,25 +42,11 @@ class AuthComponent extends Component {
         </View>
         <View style={Styles.container}>
           <AuthComponentForm
-            onSubmit={values => this.setState({ loginDetails: values })}
+            onSubmit={values => login(values)}
             initialValues={loginDetails}
+            errorMessage={errorMessage}
+            signUp={signUp}
           />
-          {errorMessage && <Forms.ErrorMessageForm message={errorMessage} />}
-          <TouchableOpacity
-            onPress={() => login(loginDetails)}
-            style={Styles.buttonContainer}
-          >
-            <Text style={Styles.buttonText}>Login</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={signUp}
-            style={Styles.signUpButtonContainer}
-          >
-            <Text style={[Styles.buttonText, { color: '#FFF' }]}>Sign Up</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={Styles.forgotPasswordContainer}>
-            <Text style={[TextStyle.callout, {color: '#FFF'}]}>Forgot password?</Text>
-          </TouchableOpacity>
         </View>
       </Content>
     );

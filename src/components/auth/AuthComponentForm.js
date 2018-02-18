@@ -3,28 +3,17 @@ import PropTypes from 'prop-types';
 import {
   View,
   TextInput,
-  Text
+  Text,
+  TouchableOpacity
 } from 'react-native';
-import { reduxForm, Field } from 'redux-form';
-import ResponsiveImage from 'react-native-responsive-image';
-import { scale } from 'utils/scale';
 
+import { reduxForm, Field } from 'redux-form';
+
+import { Forms } from 'components/tools';
+import { TextStyle } from 'constants/UIStyles';
 
 import Styles from './styles';
 
-const errorMessage = (message) => {
-  return (
-    <View style={Styles.errorContainer}>
-      <ResponsiveImage
-        source={require('images/icn-error.png')}
-        initWidth={scale(20)}
-        initHeight={scale(20)}
-        style={Styles.imageError}
-      />
-      <Text style={Styles.textError}>{message}</Text>
-    </View>
-  );
-};
 
 const CustomTextInput = ({ input, meta, containerStyle, ...inputProps }) => {
   return (
@@ -40,7 +29,7 @@ const CustomTextInput = ({ input, meta, containerStyle, ...inputProps }) => {
         onFocus={input.onFocus}
         value={input.value}
       />
-      {!meta.valid && meta.touched ? errorMessage(meta.error) : null}
+      {!meta.valid && meta.touched ? <Forms.ErrorMessageForm message={meta.error} /> : null}
     </View>
   );
 };
@@ -58,7 +47,7 @@ CustomTextInput.defaultProps = {
 const required = value => (value ? undefined : 'Field is required');
 
 const AuthComponentForm = (props) => {
-  const { submit } = props;
+  const { submit, errorMessage, signUp } = props;
   return (
     <View>
       <Field
@@ -76,12 +65,30 @@ const AuthComponentForm = (props) => {
         containerStyle={Styles.marginTopButton}
         validate={[required]}
       />
+      {errorMessage && <Forms.ErrorMessageForm message={errorMessage} />}
+      <TouchableOpacity
+        onPress={submit}
+        style={Styles.buttonContainer}
+      >
+        <Text style={Styles.buttonText}>Login</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={signUp}
+        style={Styles.signUpButtonContainer}
+      >
+        <Text style={[Styles.buttonText, { color: '#FFF' }]}>Sign Up</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={Styles.forgotPasswordContainer}>
+        <Text style={[TextStyle.callout, { color: '#FFF' }]}>Forgot password?</Text>
+      </TouchableOpacity>
     </View>
   );
 }
 
 AuthComponentForm.propTypes = {
-  submit: PropTypes.func.isRequired
+  submit: PropTypes.func.isRequired,
+  signUp: PropTypes.func.isRequired,
+  errorMessage: PropTypes.string
 };
 
 export default reduxForm({ form: 'loginForm' })(AuthComponentForm);
