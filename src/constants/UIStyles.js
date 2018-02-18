@@ -49,7 +49,7 @@ export const TextStyle = StyleSheet.create({
   title3: {
     fontSize: 22,
     fontWeight: 'bold',
-    color: TextColors.title3
+    color: TextColors.grey2
   },
   title4: {
     fontSize: 20,

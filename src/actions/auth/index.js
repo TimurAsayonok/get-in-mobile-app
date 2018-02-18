@@ -14,3 +14,9 @@ export const login = (values) => async (dispatch) => {
     console.log(error);
   }
 };
+
+export function logout() {
+  return (dispatch) => {
+    dispatch({ type: Actions.LOGOUT });
+  }
+}

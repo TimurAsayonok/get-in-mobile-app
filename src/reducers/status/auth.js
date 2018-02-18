@@ -1,7 +1,8 @@
 import * as Actions from 'constants/actions';
 
-// import { purgeStoredState } from 'redux-persist'
-// import { AsyncStorage } from 'react-native'
+import { purgeStoredState } from 'redux-persist';
+import { AsyncStorage } from 'react-native';
+import { persistRootConfig } from 'config/persist';
 
 const initialState = {
   isEntered: false,
@@ -21,6 +22,13 @@ export default function (state = initialState, action) {
 
     case Actions.LOGIN_USER_FAIL:
       return { ...state, isFetching: false, error: payload };
+
+    case Actions.LOGOUT:
+      purgeStoredState(persistRootConfig);
+
+      return {
+        ...initialState
+      };
 
     default:
       return state;

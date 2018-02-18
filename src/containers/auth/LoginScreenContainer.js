@@ -19,7 +19,7 @@ class LoginScreenContainer extends Component {
 
     this.state = {
       isFetching: false,
-      errorMessage: ''
+      errorMessage: null
     };
 
     this.loginToApp = this.loginToApp.bind(this);

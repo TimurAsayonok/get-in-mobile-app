@@ -12,7 +12,7 @@ import registerScreens from './containers/index.js';
 
 export const store = configureStore();
 
-const goToAuthScreen = () => {
+export const goToAuthScreen = () => {
   Navigation.startSingleScreenApp({
     screen: {
       screen: 'LoginScreen',

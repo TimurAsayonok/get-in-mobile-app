@@ -36,6 +36,12 @@ export const ADDED_BUTTON = {
   backgroundColor: COLORS.grey
 };
 
+export const LOG_OUT_BUTTON = {
+  title: 'Log out',
+  color: COLORS.white,
+  backgroundColor: COLORS.blue
+}
+
 export const LOCATION_BUTTONS = [
   {
     title: 'Apartment',

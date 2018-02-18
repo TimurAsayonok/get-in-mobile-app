@@ -25,6 +25,10 @@ export default function (state = initialState, action) {
         ...state,
         chosenOffers: payload.payload
       };
+    case Actions.LOGOUT:
+      return {
+        ...initialState
+      }
     default:
       return state;
   }
