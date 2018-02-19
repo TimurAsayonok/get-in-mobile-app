@@ -1,4 +1,10 @@
-export const api = 'http://localhost:3000/v1';
+import { Platform } from 'react-native';
+
+// export const api = 'http://localhost:3000/v1';
+export const api = Platform.select({
+  ios: "http://localhost:3000/v1",
+  android: "http://10.0.2.2:3000/v1"
+});
 export const photoURI = '';
 
 /* ENDPOINTS */
