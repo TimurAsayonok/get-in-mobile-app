@@ -59,7 +59,7 @@ const ButtonInageGroupStyles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   buttonContainerSelected: {
-    backgroundColor: '#e1e1e1'
+    backgroundColor: '#C3C3C3'
   },
   selectedTextStyle: {
     fontSize: 15,

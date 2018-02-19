@@ -10,7 +10,7 @@ const CustomButtonGroup = ({ selectedIndex, buttons, onPress }) => (
     tabsContainerStyle={Styles.segmentControllContainer}
     tabTextStyle={Styles.textStyle}
     activeTabTextStyle={Styles.selectedTextStyle}
-    activeTabStyle={{ backgroundColor: '#E1E1E1' }}
+    activeTabStyle={{ backgroundColor: '#C3C3C3' }}
     tabStyle={[Styles.tabStyle, { borderColor: '#E1E1E1' }]}
     values={buttons}
     selectedIndex={selectedIndex}
