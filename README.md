@@ -1,6 +1,6 @@
 # GetInMobileApp :computer:
 
-GetInMobileApp is the mobile application which uses server from [GetInBackend](https://github.com/TimurAsayonok/GetInBackend) repository.
+GetInMobileApp is the simple mobile application for seraching and booking accommodations. This application uses server from [GetInBackend](https://github.com/TimurAsayonok/GetInBackend) repository.
 **This project is designed as part of the thesis for the [Vistula](http://www.vistula.edu.pl/) University :mortar_board:**
 
 ![MainScreenMaket](https://github.com/TimurAsayonok/GetInMobileApp/blob/master/media/MainScreensMaket.jpg)
