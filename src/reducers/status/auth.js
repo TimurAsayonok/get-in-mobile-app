@@ -1,7 +1,6 @@
 import * as Actions from 'constants/actions';
 
 import { purgeStoredState } from 'redux-persist';
-import { AsyncStorage } from 'react-native';
 import { persistRootConfig } from 'config/persist';
 
 const initialState = {
