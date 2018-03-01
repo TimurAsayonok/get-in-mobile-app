@@ -58,7 +58,7 @@ export const enterToAppScreenTabs = () => {
     tabsStyle: {
       tabBarSelectedButtonColor: '#1A1919', // change the color of the selected tab icon and text (only selected)
       tabBarTranslucent: true,
-      tabBarBackgroundColor: '#FAFAFA'
+      tabBarBackgroundColor: '#FAFAFA',
     },
     appStyle: {
       hideBackButtonTitle: true, // Hide back button title. Default is false. If `backButtonTitle` provided so it will take into account and the `backButtonTitle` value will show. iOS only

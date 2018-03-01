@@ -44,6 +44,7 @@ class LoginScreenContainer extends Component {
     return (
       <LinearGradient colors={[SCREEN_GRADIENT_TOP, SCREEN_GRADIENT_BUTTOM]} style={{ flex: 1}}>
         {isFetching && <PreLoaderIndicator />}
+        {/* Component for Login Form */}
         <AuthComponent
           login={this.loginToApp}
           signUp={this.goToSignUpScreen}
@@ -53,7 +54,7 @@ class LoginScreenContainer extends Component {
       </LinearGradient>
     );
   }
-
+  //login to app method
   loginToApp(values) {
     const { dispatch } = this.props;
 

@@ -122,7 +122,6 @@ export const MODAL_NAVIGATION_STYLES = {
   navBarButtonColor: '#fff',
   tabBarHidden: true,
   //android
-  navBarTitleTextCentered: true
 }
 
  export const NAVIGATION_STYLES_MAIN = {
@@ -134,5 +133,4 @@ export const MODAL_NAVIGATION_STYLES = {
   navBarButtonColor: '#fff',
    navBarNoBorder: true,
   //android
-  navBarTitleTextCentered: true
  }
