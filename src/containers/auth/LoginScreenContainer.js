@@ -10,7 +10,7 @@ import { authSelector } from 'selectors';
 
 import { PreLoaderIndicator } from 'components/tools';
 import AuthComponent from 'components/auth/AuthComponent';
-import { SCREEN_GRADIENT_TOP, SCREEN_GRADIENT_BUTTOM } from 'constants/UIStyles';
+import { SCREEN_GRADIENT_TOP, SCREEN_GRADIENT_BUTTOM, NAVIGATION_STYLES_MAIN } from 'constants/UIStyles';
 
 class LoginScreenContainer extends Component {
 
@@ -41,10 +41,10 @@ class LoginScreenContainer extends Component {
 
   render() {
     const { isFetching, errorMessage } = this.state;
+    console.log(this.props);
     return (
       <LinearGradient colors={[SCREEN_GRADIENT_TOP, SCREEN_GRADIENT_BUTTOM]} style={{ flex: 1}}>
         {isFetching && <PreLoaderIndicator />}
-        {/* Component for Login Form */}
         <AuthComponent
           login={this.loginToApp}
           signUp={this.goToSignUpScreen}
@@ -54,6 +54,7 @@ class LoginScreenContainer extends Component {
       </LinearGradient>
     );
   }
+
   //login to app method
   loginToApp(values) {
     const { dispatch } = this.props;
@@ -67,19 +68,25 @@ class LoginScreenContainer extends Component {
 
   goToSignUpScreen() {
     const { navigator } = this.props;
+    console.log(this.props);
 
-    navigator.push({
-      screen: 'SignUpScreen',
-      title: undefined,
+    navigator.push(this.props.componentId, {
+      component: {
+        name: 'screens.SignUpScreen',
+        passProps: {
+          text: 'Pushed screen'
+        }
+      }
     });
   }
 
   goToRemindPasswordScreen() {
     const { navigator } = this.props;
 
-    navigator.push({
-      screen: 'RemindPasswordScreen',
-      title: undefined,
+    navigator.push(this.props.componentId, {
+      component: {
+        name: 'screens.RemindPasswordScreen',
+      }
     });
   }
 }

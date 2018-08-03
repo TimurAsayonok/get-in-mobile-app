@@ -1,5 +1,6 @@
+import React, { Component } from 'react';
+import { Provider } from 'react-redux';
 import { Navigation } from 'react-native-navigation';
-
 /**Auth screens */
 import LoginScreenContainer from './auth/LoginScreenContainer';
 import SignUpScreenContainer from './auth/SignUpScreenContainer';
@@ -22,15 +23,29 @@ import ChatsScreenContainer from './chats/ChatsScreenContainer';
 /** Another screens */
 import ListScreenContainer from './list/ListScreenContainer';
 
-export default function registerScreens(store, Provider) {
-  Navigation.registerComponent('LoginScreen', () => LoginScreenContainer, store, Provider);
-  Navigation.registerComponent('SignUpScreen', () => SignUpScreenContainer, store, Provider);
-  Navigation.registerComponent('RemindPasswordScreen', () => RemindPasswordScreenContainer, store, Provider);
-  Navigation.registerComponent('SearchOffersScreen', () => SearchOffersScreenContainer, store, Provider);
-  Navigation.registerComponent('OfferScreen', () => OfferScreenContainer, store, Provider);
-  Navigation.registerComponent('ResultsScreen', () => ResultsScreenContainer, store, Provider);
-  Navigation.registerComponent('ChosenOffersScreen', () => ChosenOffersScreenContainer, store, Provider);
-  Navigation.registerComponent('MoreScreen', () => MoreScreenContainer, store, Provider);
-  Navigation.registerComponent('ChatsScreen', () => ChatsScreenContainer, store, Provider);
+function sceneCreator(Component, store) {
+  return () => {
+    return class SceneWrapper extends React.Component {
+      static options = {
+        ...Component.options,
+      }
+
+      render() {
+        return <Provider store={store}>{React.createElement(Component, { ...this.props, navigator: Navigation })}</Provider>
+      }
+    };
+  }
+}
+
+export default function registerScreens(store) {
+  Navigation.registerComponent('screens.LoginScreen', sceneCreator(LoginScreenContainer, store));
+  Navigation.registerComponent('screens.SignUpScreen', sceneCreator(SignUpScreenContainer, store));
+  Navigation.registerComponent('screens.RemindPasswordScreen', sceneCreator(RemindPasswordScreenContainer, store));
+  Navigation.registerComponent('SearchOffersScreen', sceneCreator(SearchOffersScreenContainer, store));
+  Navigation.registerComponent('OfferScreen', sceneCreator(OfferScreenContainer, store));
+  Navigation.registerComponent('ResultsScreen', sceneCreator(ResultsScreenContainer, store));
+  Navigation.registerComponent('ChosenOffersScreen', sceneCreator(ChosenOffersScreenContainer, store));
+  Navigation.registerComponent('MoreScreen', sceneCreator(MoreScreenContainer, store));
+  Navigation.registerComponent('ChatsScreen', sceneCreator(ChatsScreenContainer, store));
   Navigation.registerComponent('ListScreen', () => ListScreenContainer, store, Provider);
 };

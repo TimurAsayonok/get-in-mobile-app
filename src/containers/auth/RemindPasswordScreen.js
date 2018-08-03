@@ -62,13 +62,15 @@ class RemindPasswordScreenContainer extends Component {
     dispatch(authActions.remindPassword(values));
   }
 
+  //nav. comp. styles.
+  static get options() {
+    return { ...NAVIGATION_STYLES_MAIN };
+  }
 }
 
 RemindPasswordScreenContainer.propTypes = {
   dispatch: PropTypes.func.isRequired,
   navigator: PropTypes.object.isRequired,
 };
-
-RemindPasswordScreenContainer.navigatorStyle = { ...NAVIGATION_STYLES_MAIN };
 
 export default connect(remindPasswordSelector, dispatch => ({ dispatch }))(RemindPasswordScreenContainer);

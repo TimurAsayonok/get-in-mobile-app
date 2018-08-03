@@ -12,7 +12,6 @@ import SignUpComponent from 'components/signUp/SignUpComponent';
 import { NAVIGATION_STYLES_MAIN } from 'constants/UIStyles';
 
 class SignUpScreenContainer extends Component {
-
   constructor(props) {
     super(props);
 
@@ -55,13 +54,15 @@ class SignUpScreenContainer extends Component {
     dispatch(authActions.singUp(values));
   }
 
+  //nav. comp. styles.
+  static get options() {
+    return { ...NAVIGATION_STYLES_MAIN };
+  }
 }
 
 SignUpScreenContainer.propTypes = {
   dispatch: PropTypes.func.isRequired,
   navigator: PropTypes.object.isRequired,
 };
-
-SignUpScreenContainer.navigatorStyle = { ...NAVIGATION_STYLES_MAIN };
 
 export default connect(authSelector, dispatch => ({ dispatch }))(SignUpScreenContainer);

@@ -124,13 +124,24 @@ export const MODAL_NAVIGATION_STYLES = {
   //android
 }
 
- export const NAVIGATION_STYLES_MAIN = {
-  navBarHidden: false,
-  navBarTextColor: '#FFF',
-  screenBackgroundColor: '#FFF',
-  statusBarColor: SCREEN_GRADIENT_TOP,
-  navBarBackgroundColor: SCREEN_GRADIENT_TOP,
-  navBarButtonColor: '#fff',
-   navBarNoBorder: true,
-  //android
- }
+export const NAVIGATION_STYLES_MAIN = {
+  topBar: {
+    noBorder: true,
+    title: {
+      color: '#FFF'
+    },
+    background: {
+      color: SCREEN_GRADIENT_TOP
+    },
+    backButton: {
+      color: 'red'
+    },
+    buttonColor: 'red'
+  },
+  layout: {
+    backgroundColor: '#FFF'
+  },
+  statusBar: {
+    backgroundColor: SCREEN_GRADIENT_TOP
+  }
+};

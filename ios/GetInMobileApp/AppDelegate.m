@@ -10,8 +10,8 @@
 #import "AppDelegate.h"
 
 #import <React/RCTBundleURLProvider.h>
-#import "RCCManager.h"
 #import <React/RCTRootView.h>
+ #import <ReactNativeNavigation/ReactNativeNavigation.h>
 
 @implementation AppDelegate
 
@@ -33,7 +33,7 @@
   // **********************************************
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
   self.window.backgroundColor = [UIColor whiteColor];
-  [[RCCManager sharedInstance] initBridgeWithBundleURL:jsCodeLocation launchOptions:launchOptions];
+  [ReactNativeNavigation bootstrap:jsCodeLocation launchOptions:launchOptions];
   
 //  RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
 //                                                      moduleName:@"GetInMobileApp"

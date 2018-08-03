@@ -78,6 +78,25 @@ persistStore(store, null, () => {
     enterToAppScreenTabs();
   }
   else {
-    goToAuthScreen();
+    // goToAuthScreen();
+
+    Navigation.events().registerAppLaunchedListener(() => {
+      Navigation.setRoot({
+        root: {
+          stack: {
+            children: [{
+              component: {
+                name: 'screens.LoginScreen',
+              }
+            }],
+            options: {
+              topBar: {
+                visible: false
+              }
+            }
+          }
+        }
+      });
+    });
   }
 });
