@@ -9,13 +9,13 @@ import { persistRootConfig } from 'config/persist';
 
 const loggerMiddleware = createLogger({ predicate: (getState, action) => __DEV__ });
 
-const composeEnhancers = composeWithDevTools({ suppressConnectErrors: false });
+// const composeEnhancers = composeWithDevTools({ suppressConnectErrors: false });
 
-const createStoreWithMiddleware = composeEnhancers(applyMiddleware(
+const createStoreWithMiddleware = applyMiddleware(
   customMiddleware,
   asyncMiddleware,
   loggerMiddleware
-))(createStore);
+)(createStore);
 
 
 const getStore = () => {
