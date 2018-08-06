@@ -25,8 +25,8 @@ class SearchComponent extends Component {
           type: 'nearby'
         },
         room: '1',
-        from: null,
-        to: null
+        from: 0,
+        to: 0
       }
     };
 
@@ -39,13 +39,12 @@ class SearchComponent extends Component {
   }
 
   render() {
-    const { screenTitle, onButtomPress, isFetching } = this.props;
+    const { onButtomPress, isFetching, navigator } = this.props;
     const { searchDetails } = this.state;
 
     return (
       <Content contentContainerStyle={Styles.content}>
-        {isFetching && <PreLoaderIndicator />}
-        <Title title={screenTitle} />
+
         <SearchFormComponent
           onSubmit={values => this.setState({ searchDetails: values })}
           initialValues={searchDetails}
@@ -62,30 +61,40 @@ class SearchComponent extends Component {
 
   getLocation(screen) {
     const { searchDetails } = this.state;
+    const { navigator, dispatch, componentId } = this.props;
+
     if (screen === 'nearby') {
       this.updateLocation();
     } else {
-      this.props.navigator.push({
-        screen: 'ListScreen',
-        title: LIST_SCREEN_TITLE[screen].title,
-        passProps: {
-          selectedItemId: searchDetails.location._id,
-          screenType: screen,
-          chooseListItem: (value) => {
-            this.setState({
-              searchDetails: {
-                ...searchDetails,
-                location: {
-                  ...value,
-                  type: screen
-                }
+      navigator.push(componentId, {
+        component: { 
+          name: 'screens.ListScreen',
+          options: {
+            topBar: {
+              largeTitle: {
+                visible: false,
               }
-            });
-            this.props.dispatch(change('searchdetails', 'location', {
-              ...value,
-              type: screen
-            }));
-            this.props.navigator.pop({});
+            }
+          },
+          passProps: {
+            selectedItemId: searchDetails.location._id,
+            screenType: screen,
+            chooseListItem: (value) => {
+              this.setState({
+                searchDetails: {
+                  ...searchDetails,
+                  location: {
+                    ...value,
+                    type: screen
+                  }
+                }
+              });
+              dispatch(change('searchdetails', 'location', {
+                ...value,
+                type: screen
+              }));
+              navigator.popToRoot(componentId);
+            }
           }
         }
       });
@@ -120,7 +129,6 @@ class SearchComponent extends Component {
 SearchComponent.propTypes = {
   dispatch: PropTypes.func.isRequired,
   navigator: PropTypes.object.isRequired,
-  screenTitle: PropTypes.string.isRequired,
   onButtomPress: PropTypes.func.isRequired,
   isFetching: PropTypes.bool.isRequired
 };

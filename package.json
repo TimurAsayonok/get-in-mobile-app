@@ -17,9 +17,9 @@
     "react-native-elements": "^0.19.0",
     "react-native-linear-gradient": "^2.4.0",
     "react-native-modalbox": "^1.4.2",
-    "react-native-navigation": "^2.0.2453",
+    "react-native-navigation": "^2.0.2458",
     "react-native-responsive-image": "^2.2.0",
-    "react-native-segmented-control-tab": "TimurAsayonok/react-native-segmented-control-tab",
+    "react-native-segmented-control-tab": "^3.2.2",
     "react-native-snap-carousel": "^3.5.0",
     "react-native-vector-icons": "^4.4.2",
     "react-redux": "^5.0.7",
@@ -42,7 +42,7 @@
     "eslint-plugin-react": "^7.5.1",
     "jest": "22.1.1",
     "react-test-renderer": "16.2.0",
-    "remote-redux-devtools": "^0.5.12"
+    "remote-redux-devtools": "^0.5.13"
   },
   "jest": {
     "preset": "react-native"

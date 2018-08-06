@@ -23,6 +23,9 @@ import ChatsScreenContainer from './chats/ChatsScreenContainer';
 /** Another screens */
 import ListScreenContainer from './list/ListScreenContainer';
 
+/** Tools */
+import { PreLoaderIndicator } from 'components/tools';
+
 function sceneCreator(Component, store) {
   return () => {
     return class SceneWrapper extends React.Component {
@@ -41,11 +44,13 @@ export default function registerScreens(store) {
   Navigation.registerComponent('screens.LoginScreen', sceneCreator(LoginScreenContainer, store));
   Navigation.registerComponent('screens.SignUpScreen', sceneCreator(SignUpScreenContainer, store));
   Navigation.registerComponent('screens.RemindPasswordScreen', sceneCreator(RemindPasswordScreenContainer, store));
-  Navigation.registerComponent('SearchOffersScreen', sceneCreator(SearchOffersScreenContainer, store));
-  Navigation.registerComponent('OfferScreen', sceneCreator(OfferScreenContainer, store));
-  Navigation.registerComponent('ResultsScreen', sceneCreator(ResultsScreenContainer, store));
-  Navigation.registerComponent('ChosenOffersScreen', sceneCreator(ChosenOffersScreenContainer, store));
-  Navigation.registerComponent('MoreScreen', sceneCreator(MoreScreenContainer, store));
-  Navigation.registerComponent('ChatsScreen', sceneCreator(ChatsScreenContainer, store));
-  Navigation.registerComponent('ListScreen', () => ListScreenContainer, store, Provider);
+  Navigation.registerComponent('screens.SearchOffersScreen', sceneCreator(SearchOffersScreenContainer, store));
+  Navigation.registerComponent('screens.OfferScreen', sceneCreator(OfferScreenContainer, store));
+  Navigation.registerComponent('screens.ResultsScreen', sceneCreator(ResultsScreenContainer, store));
+  Navigation.registerComponent('screens.ChosenOffersScreen', sceneCreator(ChosenOffersScreenContainer, store));
+  Navigation.registerComponent('screens.MoreScreen', sceneCreator(MoreScreenContainer, store));
+  Navigation.registerComponent('screens.ChatsScreen', sceneCreator(ChatsScreenContainer, store));
+  Navigation.registerComponent('screens.ListScreen', sceneCreator(ListScreenContainer, store));
+
+  Navigation.registerComponent('overlay.PreLoaderIndicator', sceneCreator(PreLoaderIndicator, store));
 };

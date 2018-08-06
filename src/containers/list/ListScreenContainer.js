@@ -7,7 +7,7 @@ import _ from 'lodash';
 import { listData } from 'actions';
 import { listDataSelector } from 'selectors';
 
-import { NAVIGATION_STYLES } from 'constants/UIStyles';
+import { NAVIGATION_STYLES_MAIN_WITH_LARG_TITLE } from 'constants/UIStyles';
 import { List } from 'components/tools';
 
 class ListScreenContainer extends Component {
@@ -45,6 +45,9 @@ class ListScreenContainer extends Component {
     );
   }
 
+  static get options() {
+    return { ...NAVIGATION_STYLES_MAIN_WITH_LARG_TITLE };
+  }
 }
 
 ListScreenContainer.propTypes = {
@@ -54,7 +57,5 @@ ListScreenContainer.propTypes = {
   selectedItemId: PropTypes.number,
   chooseListItem: PropTypes.func.isRequired
 };
-
-ListScreenContainer.navigatorStyle = { ...NAVIGATION_STYLES };
 
 export default connect(listDataSelector, dispatch => ({ dispatch }))(ListScreenContainer);

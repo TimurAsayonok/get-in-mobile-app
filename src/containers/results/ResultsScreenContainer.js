@@ -6,7 +6,7 @@ import { ScrollView } from 'react-native';
 import { resultsSelector } from 'selectors';
 import { List, Title } from 'components/tools';
 
-import { NAVIGATION_STYLES } from 'constants/UIStyles';
+import { NAVIGATION_STYLES_MAIN_WITH_LARG_TITLE } from 'constants/UIStyles';
 import { RESULTS_SCREEN_TITLE } from 'constants/texts';
 
 import Styles from './styles';
@@ -27,7 +27,6 @@ class ResultsScreenContainer extends Component {
 
     return (
       <ScrollView contentContainerStyle={Styles.content}>
-        <Title title={RESULTS_SCREEN_TITLE} />
         {offers && offers.map(offer => (
           <List.OfferListItem key={offer._id} offer={offer} onOpen={this.openOffer}/>
         ))}
@@ -39,15 +38,20 @@ class ResultsScreenContainer extends Component {
   openOffer(offer) {
     const { navigator } = this.props;
 
-    console.log(offer);
-
     navigator.showModal({
-      screen: "OfferScreen",
-      passProps: {
-        offer
-      },
-      animationType: 'slide-up'
-    })
+      component: {
+        name: 'screens.OfferScreen',
+        passProps: {
+          offer
+        }
+      }
+    });
+  }
+
+  static get options() {
+    return {
+      ...NAVIGATION_STYLES_MAIN_WITH_LARG_TITLE
+    };
   }
 }
 
@@ -56,7 +60,5 @@ ResultsScreenContainer.propTypes = {
   navigator: PropTypes.object.isRequired,
   offers: PropTypes.array.isRequired
 };
-
-ResultsScreenContainer.navigatorStyle = { ...NAVIGATION_STYLES };
 
 export default connect(resultsSelector, dispatch => ({ dispatch }))(ResultsScreenContainer);

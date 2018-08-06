@@ -8,7 +8,7 @@ import { authActions } from 'actions';
 import { userSelector } from 'selectors';
 import { Button } from 'components/tools';
 
-import { NAVIGATION_STYLES_MAIN, TextStyle } from 'constants/UIStyles';
+import { NAVIGATION_STYLES_MAIN_WITH_LARG_TITLE, TextStyle } from 'constants/UIStyles';
 import { LOG_OUT_BUTTON } from 'constants/commons';
 
 import Styles from './styles';
@@ -58,6 +58,9 @@ class MoreScreenContainer extends Component {
     dispatch(authActions.logout());
   }
 
+  static get options() {
+    return { ...NAVIGATION_STYLES_MAIN_WITH_LARG_TITLE };
+  }
 }
 
 MoreScreenContainer.propTypes = {
@@ -65,7 +68,5 @@ MoreScreenContainer.propTypes = {
   navigator: PropTypes.object.isRequired,
   user: PropTypes.object.isRequired
 };
-
-MoreScreenContainer.navigatorStyle = { ...NAVIGATION_STYLES_MAIN };
 
 export default connect(userSelector, dispatch => ({ dispatch }))(MoreScreenContainer);

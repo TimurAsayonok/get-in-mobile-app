@@ -7,8 +7,8 @@ import _ from 'lodash';
 import { chosenSelector } from 'selectors';
 import { List, Title } from 'components/tools';
 
-import { NAVIGATION_STYLES_MAIN } from 'constants/UIStyles';
-import { CHOSEN_SCREEN_TITLE } from 'constants/texts';
+import { NAVIGATION_STYLES_MAIN_WITH_LARG_TITLE } from 'constants/UIStyles';
+
 
 import Styles from './styles';
 
@@ -26,9 +26,12 @@ class ChosenOffersScreenContainer extends Component {
     
     return (
       <ScrollView contentContainerStyle={Styles.content}>
-        <Title title={CHOSEN_SCREEN_TITLE} />
         {chosenOffers && chosenOffers.map(offer => (
-          <List.OfferListItem key={offer._id} offer={offer} />
+          <List.OfferListItem
+            key={offer._id}
+            offer={offer}
+            onOpen={this.openOffer}
+          />
         ))}
         {_.isEmpty(chosenOffers) &&
           <Title>List is empty</Title>
@@ -37,16 +40,29 @@ class ChosenOffersScreenContainer extends Component {
     );
   }
 
+  static get options() {
+    return { ...NAVIGATION_STYLES_MAIN_WITH_LARG_TITLE };
+  }
+
+  openOffer = (offer) => {
+    const { navigator, componentId } = this.props;
+
+    navigator.showModal({
+      component: {
+        name: 'screens.OfferScreen',
+        id: `${componentId}_Modal`,
+        passProps: {
+          offer
+        }
+      }
+    });
+  }
 }
 
 ChosenOffersScreenContainer.propTypes = {
   dispatch: PropTypes.func.isRequired,
   navigator: PropTypes.object.isRequired,
   chosenOffers: PropTypes.array.isRequired
-};
-
-ChosenOffersScreenContainer.navigatorStyle = {
-  ...NAVIGATION_STYLES_MAIN
 };
 
 export default connect(chosenSelector, dispatch => ({ dispatch }))(ChosenOffersScreenContainer);

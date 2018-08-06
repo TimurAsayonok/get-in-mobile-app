@@ -134,9 +134,36 @@ export const NAVIGATION_STYLES_MAIN = {
       color: SCREEN_GRADIENT_TOP
     },
     backButton: {
-      color: 'red'
+      color: '#FFF'
     },
-    buttonColor: 'red'
+    buttonColor: '#FFF',
+  },
+  layout: {
+    backgroundColor: '#FFF'
+  },
+  statusBar: {
+    backgroundColor: SCREEN_GRADIENT_TOP
+  }
+};
+
+export const NAVIGATION_STYLES_MAIN_WITH_LARG_TITLE = {
+  topBar: {
+    noBorder: true,
+    title: {
+      color: '#FFF'
+    },
+    background: {
+      color: SCREEN_GRADIENT_TOP
+    },
+    buttonColor: '#FFF',
+    backButton: {
+      color: '#FFF'
+    },
+    largeTitle: {
+      visible: true,
+      fontSize: 34,
+      color: 'white'
+    }
   },
   layout: {
     backgroundColor: '#FFF'

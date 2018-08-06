@@ -60,7 +60,6 @@ class OfferScreenContainer extends Component {
                   initHeight={scale(22)}
                 />
               </TouchableOpacity>
-
             </View>
             <Text style={TextStyle.title4}>{offer.location.city}, {offer.location.street}</Text>
             <Text style={TextStyle.title4}>{offer.name}</Text>
@@ -110,9 +109,8 @@ class OfferScreenContainer extends Component {
   closeModal() {
     const { navigator } = this.props;
 
-    navigator.dismissModal({
-      animationType: 'slide-down'
-    });
+    console.log(this.props.componentId);
+    navigator.dismissModal(this.props.componentId);
   }
 
   chooseOffer(offerId) {

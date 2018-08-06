@@ -8,8 +8,7 @@ import { userActions } from 'actions';
 import { chatsSelector } from 'selectors';
 import { List, Title } from 'components/tools';
 
-import { NAVIGATION_STYLES_MAIN } from 'constants/UIStyles';
-import { CHATS_SCREEN_TITLE } from 'constants/texts';
+import { NAVIGATION_STYLES_MAIN_WITH_LARG_TITLE } from 'constants/UIStyles';
 
 import Styles from './styles';
 
@@ -30,7 +29,6 @@ class ChatsScreenContainer extends Component {
     const { chats } = this.props;
     return (
       <ScrollView contentContainerStyle={Styles.content}>
-        <Title title={CHATS_SCREEN_TITLE} />
         {!_.isEmpty(chats) && chats.map(chat => (
           <List.ChatListItem key={chat._id} chat={chat} />
         ))}
@@ -41,6 +39,9 @@ class ChatsScreenContainer extends Component {
     );
   }
 
+  static get options() {
+    return { ...NAVIGATION_STYLES_MAIN_WITH_LARG_TITLE };
+  }
 }
 
 ChatsScreenContainer.propTypes = {
@@ -49,7 +50,5 @@ ChatsScreenContainer.propTypes = {
   userId: PropTypes.number.isRequired,
   chats: PropTypes.array.isRequired
 };
-
-ChatsScreenContainer.navigatorStyle = { ...NAVIGATION_STYLES_MAIN };
 
 export default connect(chatsSelector, dispatch => ({ dispatch }))(ChatsScreenContainer);

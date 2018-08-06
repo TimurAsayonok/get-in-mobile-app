@@ -7,7 +7,7 @@ import { offersActions } from 'actions';
 import { searchOffersSelector } from 'selectors';
 
 import SearchComponent from 'components/search/SearchComponent';
-import { NAVIGATION_STYLES_MAIN } from 'constants/UIStyles';
+import { NAVIGATION_STYLES_MAIN_WITH_LARG_TITLE } from 'constants/UIStyles';
 import { SEARCH_SCREEN_TITLE } from 'constants/texts';
 
 class SearchOffersScreenContainer extends Component {
@@ -23,40 +23,65 @@ class SearchOffersScreenContainer extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const { offersStatus } = nextProps;
+    const { offersStatus, componentId, navigator } = nextProps;
+    
     if (offersStatus) {
-      this.setState({
-        isFetching: offersStatus.isFetching,
-      });
+      if (offersStatus.isFetching) {
+        navigator.showOverlay({
+          component: {
+            name: 'overlay.PreLoaderIndicator',
+            id: `${componentId}_PreLoaderIndicator`,
+            options: {
+              overlay: {
+                interceptTouchOutside: true
+              }
+            }
+          }
+        });
+      } else {
+        navigator.dismissOverlay(`${componentId}_PreLoaderIndicator`);
+      }
     }
+
     if (offersStatus.error && !offersStatus.isFetching) {
       Alert.alert(
         'Message',
         `${offersStatus.error}`,
         [
-          { text: 'OK', onPress: () => console.log('OK Pressed') },
+          { text: 'OK' },
         ],
         { cancelable: false }
       );
     }
 
     if (offersStatus.isFound) {
-      this.props.navigator.push({
-        screen: 'ResultsScreen',
-        title: 'Results'
+      this.props.navigator.push(componentId, {
+        component: {
+          name: 'screens.ResultsScreen',
+          options: {
+            topBar: {
+              title: {
+                text: 'Results'
+              }
+            }
+          }
+        }
       });
     }
   }
 
   render() {
+    const { navigator, dispatch, componentId } = this.props;
+
     return (
       <SearchComponent
         screenTitle={SEARCH_SCREEN_TITLE}
-        navigator={this.props.navigator}
-        dispatch={this.props.dispatch}
+        navigator={navigator}
+        dispatch={dispatch}
         onButtomPress={this.onSubmit}
-        isFetching={this.state.isFetching}
+        componentId={componentId}
       />
+
     );
   }
 
@@ -65,14 +90,21 @@ class SearchOffersScreenContainer extends Component {
 
     dispatch(offersActions.findOffers(values));
   }
+
+  static get options() {
+    return {
+      ...NAVIGATION_STYLES_MAIN_WITH_LARG_TITLE
+    };
+  }
 }
 
 SearchOffersScreenContainer.propTypes = {
+  componentId: PropTypes.string.isRequired,
   dispatch: PropTypes.func.isRequired,
   navigator: PropTypes.object.isRequired,
   offersStatus: PropTypes.object.isRequired
 };
 
-SearchOffersScreenContainer.navigatorStyle = { ...NAVIGATION_STYLES_MAIN };
+// SearchOffersScreenContainer.navigatorStyle = { ...NAVIGATION_STYLES_MAIN };
 
 export default connect(searchOffersSelector, dispatch => ({ dispatch }))(SearchOffersScreenContainer);

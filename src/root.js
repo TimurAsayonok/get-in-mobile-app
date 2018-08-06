@@ -13,90 +13,139 @@ import registerScreens from './containers/index.js';
 export const store = configureStore();
 
 export const goToAuthScreen = () => {
-  Navigation.startSingleScreenApp({
-    screen: {
-      screen: 'LoginScreen',
-      navigatorStyle: {
-        navBarHidden: true
-      },
-    },
+  Navigation.setRoot({
+    root: {
+      stack: {
+        children: [{
+          component: {
+            name: 'screens.LoginScreen',
+          }
+        }],
+        options: {
+          topBar: {
+            visible: false
+          }
+        }
+      }
+    }
   });
 }
 
 export const enterToAppScreenTabs = () => {
-  Navigation.startTabBasedApp({
-    tabs: [
-      {
-        label: 'Search',
-        screen: 'SearchOffersScreen', // this is a registered name for a screen
-        icon: require('images/search.png'),
-        selectedIcon: require('images/searchSelected.png'), // iOS only
-        title: APP_TITLE
-      },
-      {
-        label: 'Chosen',
-        screen: 'ChosenOffersScreen', // this is a registered name for a screen
-        icon: require('images/favoriteTab.png'),
-        selectedIcon: require('images/favoritesSelectedTab.png'), // iOS only
-        title: APP_TITLE
-      },
-      {
-        label: 'Chats',
-        screen: 'ChatsScreen', // this is a registered name for a screen
-        icon: require('images/chatsTab.png'),
-        selectedIcon: require('images/chatsTabSelected.png'), // iOS only
-        title: APP_TITLE
-      },
-      {
-        label: 'More',
-        screen: 'MoreScreen', // this is a registered name for a screen
-        icon: require('images/moreTab.png'),
-        selectedIcon: require('images/moreTabSelected.png'), // iOS only
-        title: APP_TITLE
+  Navigation.setRoot({
+    root: {
+      bottomTabs: {
+        children: [
+          {
+            stack: {
+              children: [{
+                component: {
+                  name: 'screens.SearchOffersScreen',
+                  id: 'SearchOffersScreen'
+                },
+              }],
+              options: {
+                bottomTab: {
+                  icon: require('images/search.png'),
+                  selectedIcon: require('images/searchSelected.png'),
+                  testID: 'TAB_SEARCH',
+                  text: 'Search',
+                  textColor: '#9B9B9B',
+                },
+                topBar: {
+                  title: {
+                    text: 'Search'
+                  }
+                }
+              }
+            }
+          },
+          {
+            stack: {
+              children: [{
+                component: {
+                  name: 'screens.ChosenOffersScreen',
+                  id: 'ChosenOffersScreen'
+                },
+              }],
+              options: {
+                bottomTab: {
+                  icon: require('images/favoriteTab.png'),
+                  selectedIcon: require('images/favoritesSelectedTab.png'),
+                  testID: 'TAB_CHOSEN',
+                  text: 'Chosen',
+                  textColor: '#9B9B9B',
+                },
+                topBar: {
+                  title: {
+                    text: 'Chosen'
+                  }
+                }
+              }
+            }
+          },
+          {
+            stack: {
+              children: [{
+                component: {
+                  name: 'screens.ChatsScreen',
+                },
+              }],
+              options: {
+                bottomTab: {
+                  icon: require('images/chatsTab.png'),
+                  selectedIcon: require('images/chatsTabSelected.png'),
+                  testID: 'TAB_CHATS',
+                  text: 'Chats',
+                  textColor: '#9B9B9B',
+                },
+                topBar: {
+                  title: {
+                    text: 'Chats'
+                  }
+                }
+              }
+            }
+          },
+          {
+            stack: {
+              children: [{
+                component: {
+                  name: 'screens.MoreScreen',
+                },
+              }],
+              options: {
+                bottomTab: {
+                  icon: require('images/moreTab.png'),
+                  selectedIcon: require('images/moreTabSelected.png'),
+                  testID: 'TAB_MORE',
+                  text: 'More',
+                  textColor: '#9B9B9B',
+                },
+                topBar: {
+                  title: {
+                    text: 'More'
+                  }
+                }
+              }
+            }
+          }
+        ]
       }
-    ],
-    tabsStyle: {
-      tabBarSelectedButtonColor: '#1A1919', // change the color of the selected tab icon and text (only selected)
-      tabBarTranslucent: true,
-      tabBarBackgroundColor: '#FAFAFA',
-    },
-    appStyle: {
-      hideBackButtonTitle: true, // Hide back button title. Default is false. If `backButtonTitle` provided so it will take into account and the `backButtonTitle` value will show. iOS only
-      forceTitlesDisplay: true,
-      tabBarSelectedButtonColor: '#1A1919',
-      orientation: 'portrait',
-      tabBarBackgroundColor: '#FAFAFA'
     }
   });
-};
+}
 
 registerScreens(store, Provider);
 
 persistStore(store, null, () => {
   const userStore = store.getState().entities.user;
-  if (!!Object.keys(userStore).length) {
-    enterToAppScreenTabs();
-  }
-  else {
-    // goToAuthScreen();
-
-    Navigation.events().registerAppLaunchedListener(() => {
-      Navigation.setRoot({
-        root: {
-          stack: {
-            children: [{
-              component: {
-                name: 'screens.LoginScreen',
-              }
-            }],
-            options: {
-              topBar: {
-                visible: false
-              }
-            }
-          }
-        }
-      });
-    });
-  }
+  Navigation.events().registerAppLaunchedListener(() => {
+    if (!!Object.keys(userStore).length) {
+      enterToAppScreenTabs();
+    }
+    else {
+      goToAuthScreen();
+    }
+  });
 });
