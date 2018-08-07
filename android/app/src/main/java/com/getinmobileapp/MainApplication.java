@@ -6,7 +6,6 @@ import com.facebook.react.ReactApplication;
 import com.BV.LinearGradient.LinearGradientPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.reactnativenavigation.NavigationApplication;
-import com.reactnativenavigation.bridge.NavigationReactPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
@@ -17,26 +16,9 @@ import java.util.Arrays;
 import java.util.List;
 
 public class MainApplication extends NavigationApplication {
-
-  private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
-
-    @Override
-    public boolean getUseDeveloperSupport() {
-      return BuildConfig.DEBUG;
-    }
-
-    protected List<ReactPackage> getPackages() {
-      return Arrays.<ReactPackage>asList(
-              new MainReactPackage(),
-              new VectorIconsPackage(),
-              new NavigationReactPackage()
-      );
-    }
-  };
-
   @Override
-  public String getJSMainModuleName() {
-    return "index";
+  public void onCreate() {
+    super.onCreate();
   }
 
   @Override
@@ -49,24 +31,14 @@ public class MainApplication extends NavigationApplication {
     // Add additional packages you require here
     // No need to add RnnPackage and MainReactPackage
     return Arrays.<ReactPackage>asList(
-            // eg. new VectorIconsPackage()
-            new LinearGradientPackage()
+      new MainReactPackage(),
+      new VectorIconsPackage(),
+      new LinearGradientPackage()
     );
   }
 
   @Override
   public List<ReactPackage> createAdditionalReactPackages() {
     return getPackages();
-  }
-
-  @Override
-  public ReactNativeHost getReactNativeHost() {
-    return mReactNativeHost;
-  }
-
-  @Override
-  public void onCreate() {
-    super.onCreate();
-    SoLoader.init(this, /* native exopackage */ false);
   }
 }

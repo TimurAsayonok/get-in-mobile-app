@@ -1,12 +1,7 @@
-import React, { Component } from 'react';// eslint-disable-line
-import { Provider } from 'react-redux';
 import { Navigation } from 'react-native-navigation';
 import { persistStore } from 'redux-persist';
 
 import configureStore from './store/configureStore';
-
-import { APP_TITLE } from './constants/commons';
-import { SCREEN_BACKGROUNDCOLOR } from './constants/UIStyles';
 import registerScreens from './containers/index.js';
 
 
@@ -19,13 +14,16 @@ export const goToAuthScreen = () => {
         children: [{
           component: {
             name: 'screens.LoginScreen',
+            options: {
+              topBar: {
+                visible: false
+              },
+              layout: {
+                orientation: ['portrait']
+              }
+            }
           }
-        }],
-        options: {
-          topBar: {
-            visible: false
-          }
-        }
+        }]
       }
     }
   });
@@ -41,8 +39,15 @@ export const enterToAppScreenTabs = () => {
               children: [{
                 component: {
                   name: 'screens.SearchOffersScreen',
-                  id: 'SearchOffersScreen'
-                },
+                  id: 'SearchOffersScreen',
+                  options: {
+                    topBar: {
+                      title: {
+                        text: 'Search',
+                      }
+                    }
+                  }
+                }
               }],
               options: {
                 bottomTab: {
@@ -51,11 +56,6 @@ export const enterToAppScreenTabs = () => {
                   testID: 'TAB_SEARCH',
                   text: 'Search',
                   textColor: '#9B9B9B',
-                },
-                topBar: {
-                  title: {
-                    text: 'Search'
-                  }
                 }
               }
             }
@@ -65,7 +65,14 @@ export const enterToAppScreenTabs = () => {
               children: [{
                 component: {
                   name: 'screens.ChosenOffersScreen',
-                  id: 'ChosenOffersScreen'
+                  id: 'ChosenOffersScreen',
+                  options: {
+                    topBar: {
+                      title: {
+                        text: 'Chosen'
+                      }
+                    }
+                  }
                 },
               }],
               options: {
@@ -75,11 +82,6 @@ export const enterToAppScreenTabs = () => {
                   testID: 'TAB_CHOSEN',
                   text: 'Chosen',
                   textColor: '#9B9B9B',
-                },
-                topBar: {
-                  title: {
-                    text: 'Chosen'
-                  }
                 }
               }
             }
@@ -89,6 +91,13 @@ export const enterToAppScreenTabs = () => {
               children: [{
                 component: {
                   name: 'screens.ChatsScreen',
+                  options: {
+                    topBar: {
+                      title: {
+                        text: 'Chats'
+                      }
+                    }
+                  }
                 },
               }],
               options: {
@@ -98,11 +107,6 @@ export const enterToAppScreenTabs = () => {
                   testID: 'TAB_CHATS',
                   text: 'Chats',
                   textColor: '#9B9B9B',
-                },
-                topBar: {
-                  title: {
-                    text: 'Chats'
-                  }
                 }
               }
             }
@@ -112,6 +116,13 @@ export const enterToAppScreenTabs = () => {
               children: [{
                 component: {
                   name: 'screens.MoreScreen',
+                  options: {
+                    topBar: {
+                      title: {
+                        text: 'More'
+                      }
+                    }
+                  }
                 },
               }],
               options: {
@@ -121,30 +132,33 @@ export const enterToAppScreenTabs = () => {
                   testID: 'TAB_MORE',
                   text: 'More',
                   textColor: '#9B9B9B',
-                },
-                topBar: {
-                  title: {
-                    text: 'More'
-                  }
                 }
               }
             }
           }
-        ]
+        ],
+        options: {
+          layout: {
+            orientation: ['portrait']
+          },
+          bottomTabs: {
+            titleDisplayMode: 'alwaysShow' 
+          }
+        }
       }
     }
   });
 }
 
-registerScreens(store, Provider);
+registerScreens(store);
 
-persistStore(store, null, () => {
-  const userStore = store.getState().entities.user;
-  Navigation.events().registerAppLaunchedListener(() => {
+
+Navigation.events().registerAppLaunchedListener(() => {
+  persistStore(store, null, () => {
+    const userStore = store.getState().entities.user;
     if (!!Object.keys(userStore).length) {
       enterToAppScreenTabs();
-    }
-    else {
+    } else {
       goToAuthScreen();
     }
   });

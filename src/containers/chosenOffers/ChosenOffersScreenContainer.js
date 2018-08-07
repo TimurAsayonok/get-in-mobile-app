@@ -7,7 +7,7 @@ import _ from 'lodash';
 import { chosenSelector } from 'selectors';
 import { List, Title } from 'components/tools';
 
-import { NAVIGATION_STYLES_MAIN_WITH_LARG_TITLE } from 'constants/UIStyles';
+import { NAVIGATION_STYLES_MAIN_WITH_LARG_TITLE, MODAL_STYLES} from 'constants/UIStyles';
 
 
 import Styles from './styles';
@@ -53,6 +53,9 @@ class ChosenOffersScreenContainer extends Component {
         id: `${componentId}_Modal`,
         passProps: {
           offer
+        },
+        options: {
+          ...MODAL_STYLES
         }
       }
     });
